@@ -43,19 +43,19 @@
 
                 <!-- Menu Artikel -->
                 <li class="nav-item">
-                    <a href="<?= base_url('Artikel')?>" class="nav-link">
+                    <a href="<?= base_url('admin/Artikel')?>" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>Artikel</p>
                     </a>
                 </li>
 
-                <!-- Menu Pages -->
+                <!-- Menu Pages
                 <li class="nav-item">
-                    <a href="<?= base_url('Pages')?>" class="nav-link">
+                    <a href="<?= base_url('admin/Pages')?>" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>Pages</p>
                     </a>
-                </li>
+                </li> -->
 
                 <!-- Menu Pengaturan Website -->
                 <li class="nav-item">

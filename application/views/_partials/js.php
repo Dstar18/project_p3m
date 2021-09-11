@@ -7,7 +7,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url()?>assets/dist/js/demo.js"></script>
 
-<!-- JS Menu Kategori -->
+<!-- JS Menu Kategori, Artikel -->
 <!-- DataTables  & Plugins -->
 <script src="<?= base_url()?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url()?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -39,7 +39,7 @@
     });
   });
 </script>
-<!-- /JS Menu Kategori -->
+<!-- /JS Menu Kategori, Artikel -->
 
 <!-- Menu Addkategori -->
 <!-- bs-custom-file-input -->
@@ -51,3 +51,22 @@ $(function () {
 });
 </script>
 <!-- /Menu Addkategori -->
+
+<!-- Menu Add Artikel -->
+<!-- Summernote -->
+<script src="<?= base_url()?>assets/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
+</script>
+
+<!-- bs-custom-file-input -->
+<script src="<?= base_url()?>assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- Page specific script -->
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>

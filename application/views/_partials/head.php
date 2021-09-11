@@ -2,8 +2,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>P3M | Admin</title>
 
-  <!-- Google Font: Source Sans Pro
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> -->
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="<?= base_url()?>assets/dist/google_font/google-font.css">
 
   <!-- Bootstrap -->
   <link href="<?= base_url()?>assets/dist/css/adminlte.min.css" rel="stylesheet">
@@ -18,4 +18,10 @@
   <link rel="stylesheet" href="<?= base_url()?>assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="<?= base_url()?>assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- /Menu Kategori -->
+
+  <!-- Menu Artikel -->
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/ionicons/ionicons.min.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="<?= base_url()?>assets/plugins/summernote/summernote-bs4.css">
 

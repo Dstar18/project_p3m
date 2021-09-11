@@ -33,11 +33,12 @@
                                     </div>
                                     <!-- /Navbar Content -->
                                     <!-- Page Content -->
-                                    <form action="<?=base_url('admin/Kategori/addKategori')?>" method="POST">
+                                    <form action="<?=base_url('admin/Kategori/editKategori')?>" method="POST">
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="kategoriNama">Nama Kategori</label>
-                                                <input type="text" id="kategoriNama" name="kategoriNama" class="form-control">
+                                                <input type="hidden" id="kategoriId" name="kategoriId" value="<?=$dataKategori->kategori_id?>" class="form-control">
+                                                <input type="text" id="kategoriNama" name="kategoriNama" value="<?=$dataKategori->kategori_nama?>" class="form-control">
                                             </div>
                                         </div>
                                         <div class="card-footer">
