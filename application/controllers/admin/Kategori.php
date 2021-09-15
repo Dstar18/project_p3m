@@ -13,8 +13,7 @@ class Kategori extends CI_Controller{
     public function index(){
         $data['dataKategori'] = $this->Kategori_m->getAll()->result();
         // echo json_encode($data);
-        $this->load->view('kategori/kategori_data', $data);
-            
+        $this->load->view('kategori/kategori_data', $data);  
     }
 
     //View Tampilan Add Kategori
@@ -72,7 +71,7 @@ class Kategori extends CI_Controller{
     public function deleteKategori($id){
         $this->Kategori_m->deleteKategori($id);
         
-        header("Location: index");       
+        redirect(base_url().'admin/Kategori');      
     }
 
 }

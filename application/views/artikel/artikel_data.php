@@ -62,8 +62,8 @@
                                         <td><?=$i++?></td>
                                         <td><?=$rowArtikel->artikel_date?></td>
                                         <td><?=$rowArtikel->artikel_judul?></td>
-                                        <td><?=$rowArtikel->artikel_penulis?></td>
-                                        <td><?=$rowArtikel->artikel_kategori?></td>
+                                        <td><?=$rowArtikel->petugas_id?></td>
+                                        <td><?=$rowArtikel->kategori_id?></td>
                                         <td><?=$rowArtikel->artikel_status?></td>
                                         
                                         <td>

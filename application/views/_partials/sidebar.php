@@ -59,7 +59,7 @@
 
                 <!-- Menu Pengaturan Website -->
                 <li class="nav-item">
-                    <a href="<?= base_url('Pengaturan_website')?>" class="nav-link">
+                    <a href="<?= base_url('admin/Pengaturan_website')?>" class="nav-link">
                         <i class="nav-icon fa fa-cog"></i>
                         <p>Pengaturan Website</p>
                     </a>
@@ -67,7 +67,7 @@
 
                 <!-- Menu Data Petugas -->
                 <li class="nav-item">
-                    <a href="<?= base_url('Petugas')?>" class="nav-link">
+                    <a href="<?= base_url('admin/Petugas')?>" class="nav-link">
                         <i class="nav-icon fa fa-users"></i>
                         <p>Data Petugas</p>
                     </a>

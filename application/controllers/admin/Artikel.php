@@ -5,25 +5,41 @@ class Artikel extends CI_Controller{
 
     function __construct(){
         parent::__construct();
-        $this->load->model('Artikel_m');
+        date_default_timezone_set('Asia/Jakarta');
+        $this->load->model(['Artikel_m', 'Kategori_m', 'Petugas_m']);
         $this->load->library('form_validation');
     }
 
     // Index
     public function index(){
         $data['dataArtikel'] = $this->Artikel_m->getAll()->result();
-        echo json_encode($data);
-        // $this->load->view('artikel/artikel_data', $data);
+        // echo json_encode($data);
+        $this->load->view('artikel/artikel_data', $data);
     }
 
     // View Tampilan Add Artikel
     public function viewAddArtikel(){
-        $this->load->view('artikel/artikel_add');
+        $data['dataKategori'] = $this->Kategori_m->getAll()->result();
+        $this->load->view('artikel/artikel_add', $data);
     }
 
     // Add Artikel
     public function addArtikel(){
+        $respon = array();
+        $post = $this->input->post(null, TRUE);
+        // $data = $this->Artikel_m->addArtikel($post);
+        // if($data == TRUE){
+           
+        //     header("Location: index");
+            
+        // }else{
+        //     $respon = array(
+        //         'status' => 'gagal'
+        //     );
+        // }
         
+        // echo json_encode($respon);
+        echo json_encode($post);
     }
 
     // View Tampilan Edit Artikel

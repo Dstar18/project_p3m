@@ -33,38 +33,59 @@
                                     </div>
                                     <!-- /Navbar Content -->
                                     <!-- Page Content -->
-                                    <div class="card-body pad">
-                                        <div class="form-group ">
-                                            <label for="judulArtikel">Judul</label>
-                                            <input type="text" id="judulArtikel" class="form-control">
-                                        </div>
+                                    <form action="<?=base_url('admin/Artikel/addArtikel')?>" method="POST">
+                                        <div class="card-body pad">
+                                        
+                                            <input type="hidden" id="artikelDate" name="artikelDate" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control">
 
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Kategori</label>
-                                                    <select name="" id="" class="form-control">
-                                                        <option value="">-Pilih Kategori</option>
-                                                        <option>Kategori1</option>
-                                                        <option>Kategori2</option>
-                                                    </select>
+                                            <div class="form-group ">
+                                                <label for="artikelJudul">Judul</label>
+                                                <input type="text" id="artikelJudul" name="artikelJudul" class="form-control">
+                                            </div>
+
+                                            <div class="form-group ">
+                                                <label for="petugasId">Nama Penulis</label>
+                                                <input type="text" id="petugasId" name="petugasId" class="form-control">
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Kategori</label>
+                                                        <select name="kategoriId" id="kategoriId" class="form-control">
+                                                        <!-- <option value="">- Pilih Kategori</option> -->
+                                                        <?php foreach($dataKategori as $rowKategori){ ?>
+                                                            <option value="<?=$rowKategori->kategori_id?>"><?=$rowKategori->kategori_nama?></option>
+                                                            <?php }?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <label for="artikelContent">Konten</label>
+                                                <textarea class="textarea" id="artikelContent" name="artikelContent[]" placeholder="Place some text here" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Status</label>
+                                                        <select class="custom-select" id="artikelStatus" name="artikelStatus">
+                                                            <option value="1">Publish</option>
+                                                            <option value="2">Draft</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="">
-                                            <label for="judulArtikel">Konten</label>
-                                            <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                                        </div>
-                                        
                                         <div class="card-footer">
-                                        <a href="<?= base_url('admin/Artikel')?>">
-                                            <button type="submit" name="status" value="Cancel" class="btn btn-danger">Cancel</button>
-                                        </a>
-                                            <button type="submit" name="status" value="Draft" class="btn btn-warning">Draft</button>
-                                            <button type="submit" name="status" value="Publish" class="btn btn-success">Publish</button>
+                                            <a href="<?= base_url('admin/Artikel')?>">
+                                                <button type="button" class="btn btn-danger">Cancel</button>
+                                            </a>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

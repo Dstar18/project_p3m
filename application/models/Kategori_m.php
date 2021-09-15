@@ -1,6 +1,6 @@
 <?php
 
-class Kategori_m extends CI_Controller{
+class Kategori_m extends CI_Model{
 
     public function getAll(){
         $this->db->select('*');
