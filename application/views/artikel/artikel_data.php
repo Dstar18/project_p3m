@@ -60,10 +60,10 @@
                                     foreach($dataArtikel as $rowArtikel){?>
                                     <tr>
                                         <td><?=$i++?></td>
-                                        <td><?=$rowArtikel->artikel_date?></td>
+                                        <td><?=$rowArtikel->artikel_date_update?></td>
                                         <td><?=$rowArtikel->artikel_judul?></td>
-                                        <td><?=$rowArtikel->petugas_id?></td>
-                                        <td><?=$rowArtikel->kategori_id?></td>
+                                        <td><?=$rowArtikel->pengguna_nama?></td>
+                                        <td><?=$rowArtikel->kategori_nama?></td>
                                         <td><?=$rowArtikel->artikel_status?></td>
                                         
                                         <td>

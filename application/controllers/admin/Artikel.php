@@ -5,8 +5,7 @@ class Artikel extends CI_Controller{
 
     function __construct(){
         parent::__construct();
-        date_default_timezone_set('Asia/Jakarta');
-        $this->load->model(['Artikel_m', 'Kategori_m', 'Petugas_m']);
+        $this->load->model(['Artikel_m', 'Kategori_m', 'Pengguna_m']);
         $this->load->library('form_validation');
     }
 
@@ -15,6 +14,11 @@ class Artikel extends CI_Controller{
         $data['dataArtikel'] = $this->Artikel_m->getAll()->result();
         // echo json_encode($data);
         $this->load->view('artikel/artikel_data', $data);
+    }
+
+    public function cobaJoin(){
+        $data['dataJoin'] = $this->Artikel_m->getAll()->result();
+        echo json_encode($data);
     }
 
     // View Tampilan Add Artikel
@@ -27,19 +31,19 @@ class Artikel extends CI_Controller{
     public function addArtikel(){
         $respon = array();
         $post = $this->input->post(null, TRUE);
-        // $data = $this->Artikel_m->addArtikel($post);
-        // if($data == TRUE){
+        $data = $this->Artikel_m->addArtikel($post);
+        if($data == TRUE){
            
-        //     header("Location: index");
+            header("Location: index");
             
-        // }else{
-        //     $respon = array(
-        //         'status' => 'gagal'
-        //     );
-        // }
+        }else{
+            $respon = array(
+                'status' => 'gagal'
+            );
+        }
         
-        // echo json_encode($respon);
-        echo json_encode($post);
+        echo json_encode($respon);
+        // echo json_encode($post);
     }
 
     // View Tampilan Edit Artikel

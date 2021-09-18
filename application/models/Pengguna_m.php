@@ -1,6 +1,6 @@
 <?php
 
-class Petugas_m extends CI_Model{
+class Pengguna_m extends CI_Model{
 
     public function getAll(){
         $this->db->select('*');

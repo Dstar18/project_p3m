@@ -36,7 +36,8 @@
                                     <form action="<?=base_url('admin/Artikel/addArtikel')?>" method="POST">
                                         <div class="card-body pad">
                                         
-                                            <input type="hidden" id="artikelDate" name="artikelDate" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control">
+                                            <input type="hidden" id="artikelDateInsert" name="artikelDateInsert" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control">
+                                            <input type="hidden" id="artikelDateUpdate" name="artikelDateUpdate" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control">
 
                                             <div class="form-group ">
                                                 <label for="artikelJudul">Judul</label>
@@ -44,40 +45,40 @@
                                             </div>
 
                                             <div class="form-group ">
-                                                <label for="petugasId">Nama Penulis</label>
-                                                <input type="text" id="petugasId" name="petugasId" class="form-control">
+                                                <label for="artikelpetugasId">Nama Penulis</label>
+                                                <input type="text" id="artikelpetugasId" name="artikelpetugasId" class="form-control">
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>Kategori</label>
-                                                        <select name="kategoriId" id="kategoriId" class="form-control">
-                                                        <!-- <option value="">- Pilih Kategori</option> -->
-                                                        <?php foreach($dataKategori as $rowKategori){ ?>
-                                                            <option value="<?=$rowKategori->kategori_id?>"><?=$rowKategori->kategori_nama?></option>
-                                                            <?php }?>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                          
+                                            <div class="form-group">
+                                                <label>Kategori</label>
+                                                <select name="artikelkategoriId" id="artikelkategoriId" class="form-control">
+                                                <!-- <option value="">- Pilih Kategori</option> -->
+                                                <?php foreach($dataKategori as $rowKategori){ ?>
+                                                    <option value="<?=$rowKategori->kategori_id?>"><?=$rowKategori->kategori_nama?></option>
+                                                    <?php }?>
+                                                </select>
                                             </div>
+                                           
+                                            <div class="form-group">
+                                                <label for="exampleFormControlFile1">Gambar Sampul</label>
+                                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                            </div>
+                                              
 
                                             <div>
                                                 <label for="artikelContent">Konten</label>
-                                                <textarea class="textarea" id="artikelContent" name="artikelContent[]" placeholder="Place some text here" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                                <textarea class="textarea" id="artikelContent" name="artikelContent" placeholder="Place some text here" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>Status</label>
-                                                        <select class="custom-select" id="artikelStatus" name="artikelStatus">
-                                                            <option value="1">Publish</option>
-                                                            <option value="2">Draft</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                            <div class="form-group">
+                                                <label>Status</label>
+                                                <select class="custom-select" id="artikelStatus" name="artikelStatus">
+                                                    <option value="1">Publish</option>
+                                                    <option value="2">Draft</option>
+                                                </select>
                                             </div>
+                                             
                                         </div>
                                         <div class="card-footer">
                                             <a href="<?= base_url('admin/Artikel')?>">
