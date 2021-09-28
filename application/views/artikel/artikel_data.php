@@ -70,7 +70,7 @@
                                             <a href="<?= base_url('admin/Artikel/viewLihatArtikel')?>">
                                                 <button class="btn btn-sm btn-success" id="btn-lihat">Lihat</button>
                                             </a>
-                                            <a href="<?= base_url('admin/Artikel/viewEditArtikel')?>">
+                                            <a href="<?= base_url('admin/Artikel/viewEditArtikel/'.$rowArtikel->artikel_id)?>">
                                                 <button class="btn btn-sm btn-warning" id="btn-edit">Edit</button>
                                             </a>
                                             <a href="<?= base_url('admin/Artikel/deleteArtikel')?>">

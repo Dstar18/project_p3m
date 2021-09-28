@@ -61,8 +61,8 @@
                                             </div>
                                            
                                             <div class="form-group">
-                                                <label for="exampleFormControlFile1">Gambar Sampul</label>
-                                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                                <label for="artikelImgName">Gambar Sampul</label>
+                                                <input type="file" class="form-control-file" name="artikelImgName" id="artikelImgName">
                                             </div>
                                               
 

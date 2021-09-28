@@ -52,7 +52,7 @@ class Kategori extends CI_Controller{
     //Edit Kategori
     public function editKategori(){
         $post = $this->input->post(null, TRUE);
-        echo json_encode($post);
+        // echo json_encode($post);
         $data = $this->Kategori_m->editKategori($post);
         if($data == TRUE){
            
