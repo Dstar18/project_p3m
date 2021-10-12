@@ -10,7 +10,7 @@
   <link href="<?= base_url()?>assetsWeb/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet"> -->
 
   <!-- Vendor CSS Files -->
   <link href="<?= base_url()?>assetsWeb/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -22,3 +22,5 @@
 
   <!-- Template Main CSS File -->
   <link href="<?= base_url()?>assetsWeb/css/style.css" rel="stylesheet">
+
+  <!-- Dashboard -->

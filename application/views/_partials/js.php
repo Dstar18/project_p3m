@@ -58,7 +58,8 @@ $(function () {
 <script>
   $(function () {
     // Summernote
-    $('.textarea').summernote()
+    // $('.textarea').summernote()
+    $('#compose-textarea').summernote()
   })
 </script>
 

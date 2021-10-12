@@ -6,8 +6,8 @@ class Artikel_m extends CI_Model{
         $this->db->select('*');
         $this->db->from('tb_artikel');
         $this->db->order_by('artikel_id', 'ASC');
-        $this->db->join('tb_kategori','tb_kategori.kategori_id = tb_artikel.artikel_kategori_id');
-        $this->db->join('tb_pengguna','tb_pengguna.pengguna_id = tb_artikel.artikel_petugas_id');
+        // $this->db->join('tb_kategori','tb_kategori.kategori_id = tb_artikel.artikel_kategori_id');
+        // $this->db->join('tb_pengguna','tb_pengguna.pengguna_id = tb_artikel.artikel_petugas_id');
         $query = $this->db->get();
         return $query;
     }
@@ -30,22 +30,22 @@ class Artikel_m extends CI_Model{
     //     return $query;
     // }
 
-    public function addArtikel($post){
-        $params = array(
-            'artikel_kategori_id' => $post['artikelkategoriId'],
-            'artikel_petugas_id' => $post['artikelpetugasId'],
-            'artikel_date_insert' => $post['artikelDateInsert'],
-            'artikel_judul' => $post['artikelJudul'],
-            'artikel_content' => $post['artikelContent'],
-            'artikel_status' => $post['artikelStatus'],
-            'artikel_date_update' => $post['artikelDateUpdate'],
-            'artikel_imgname' => $post['artikelImgName'],         
-        );
-        // $this->image = $this->_uploadImage();
-        $query = $this->db->insert('tb_artikel', $params);
-        // $id = $this->db->insert_id();
-        return $query;
-    }
+    // public function addArtikel($post){
+    //     $params = array(
+    //         'artikel_kategori_id' => $post['artikelkategoriId'],
+    //         'artikel_petugas_id' => $post['artikelpetugasId'],
+    //         'artikel_date_insert' => $post['artikelDateInsert'],
+    //         'artikel_judul' => $post['artikelJudul'],
+    //         'artikel_content' => $post['artikelContent'],
+    //         'artikel_status' => $post['artikelStatus'],
+    //         'artikel_date_update' => $post['artikelDateUpdate'],
+    //         'artikel_imgname' => $post['artikelImgName'],         
+    //     );
+    //     // $this->image = $this->_uploadImage();
+    //     $query = $this->db->insert('tb_artikel', $params);
+    //     // $id = $this->db->insert_id();
+    //     return $query;
+    // }
 
     // public function _uploadImage(){
     //     $config['upload__path'] = './upload/imgsampul';
@@ -62,19 +62,19 @@ class Artikel_m extends CI_Model{
     //     }
     // }
 
-    public function editArtikel($post){
-        $parse = array(
-            'artikel_kategori_id' => $post['artikelkategoriId'],
-            'artikel_petugas_id' => $post['artikelpetugasId'],
-            'artikel_date_insert' => $post['artikelDateInsert'],
-            'artikel_judul' => $post['artikelJudul'],
-            'artikel_content' => $post['artikelContent'],
-            'artikel_status' => $post['artikelStatus'],
-            'artikel_date_update' => $post['artikelDateUpdate'],
-            'artikel_imgname' => $post['artikelImgName'],
-        );
-        $this->db->where('artikel_id', $post['artikelId']);
-        $query = $this->db->update('tb_artikel', $parse);
-        return $query;
-    }
+    // public function editArtikel($post){
+    //     $parse = array(
+    //         'artikel_kategori_id' => $post['artikelkategoriId'],
+    //         'artikel_petugas_id' => $post['artikelpetugasId'],
+    //         'artikel_date_insert' => $post['artikelDateInsert'],
+    //         'artikel_judul' => $post['artikelJudul'],
+    //         'artikel_content' => $post['artikelContent'],
+    //         'artikel_status' => $post['artikelStatus'],
+    //         'artikel_date_update' => $post['artikelDateUpdate'],
+    //         'artikel_imgname' => $post['artikelImgName'],
+    //     );
+    //     $this->db->where('artikel_id', $post['artikelId']);
+    //     $query = $this->db->update('tb_artikel', $parse);
+    //     return $query;
+    // }
 }

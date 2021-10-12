@@ -77,7 +77,7 @@
                                                     <option value="1">Publish</option>
                                                     <option value="2">Draft</option>
                                                 </select>
-                                            </div>
+                                            </div>  
                                              
                                         </div>
                                         <div class="card-footer">

@@ -29,20 +29,49 @@
                                 <div class="card card-primary">
                                     <!-- Navbar Content -->
                                     <div class="card-header">
-                                        <h3 class="card-title"> EDIT DATA KATEGORI</h3>
+                                        <h3 class="card-title">TAMBAH DATA PETUGAS</h3>
                                     </div>
                                     <!-- /Navbar Content -->
                                     <!-- Page Content -->
-                                    <form action="<?=base_url('admin/Kategori/editKategori')?>" method="POST">
+                                    <form action="<?=base_url('admin/Petugas/addPetugas')?>" method="POST">
                                         <div class="card-body">
+
                                             <div class="form-group">
-                                                <label for="kategoriNama">Nama Kategori</label>
-                                                <input type="hidden" id="kategoriId" name="kategoriId" value="<?=$dataKategori->kategori_id?>" class="form-control">
-                                                <input type="text" id="kategoriNama" name="kategoriNama" value="<?=$dataKategori->kategori_nama?>" class="form-control">
+                                                <label for="petugasNama">Nama</label>
+                                                <input type="text" id="petugasNama" name="petugasNama" class="form-control">
                                             </div>
+
+                                            <div class="form-group">
+                                                <label for="petugasEmail">Email</label>
+                                                <input type="text" id="petugasEmail" name="petugasEmail" class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="petugasNohp">No HP</label>
+                                                <input type="number" id="petugasNohp" name="petugasNohp" class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="petugasUsername">Username</label>
+                                                <input type="text" id="petugasUsername" name="petugasUsername" class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="petugasPassword">Password</label>
+                                                <input type="text" id="petugasPassword" name="petugasPassword" class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Level</label>
+                                                <select class="custom-select" id="petugasLevel" name="petugasLevel">
+                                                    <option value="1">Admin</option>
+                                                    <option value="2">Penulis</option>
+                                                </select>
+                                            </div>
+
                                         </div>
                                         <div class="card-footer">
-                                            <a href="<?= base_url('admin/Kategori')?>">
+                                            <a href="<?= base_url('admin/Petugas')?>">
                                                 <button type="button" class="btn btn-danger">Cancel</button>
                                             </a>
                                             <button type="submit" class="btn btn-primary">Submit</button>

@@ -17,63 +17,8 @@
             
             <!-- Main Content -->
             <main id="main">
-                <!-- ======= About Section ======= -->
-                <div id="about" class="about-area area-padding">
-                <div class="container">
-                    <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="section-headline text-center">
-                        <h2>About eBusiness</h2>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <!-- single-well start-->
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="well-left">
-                        <div class="single-well">
-                            <a href="#">
-                            <img src="<?= base_url()?>assetsWeb/img/about/1.jpg" alt="">
-                            </a>
-                        </div>
-                        </div>
-                    </div>
-                    <!-- single-well end-->
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="well-middle">
-                        <div class="single-well">
-                            <a href="#">
-                            <h4 class="sec-head">project Maintenance</h4>
-                            </a>
-                            <p>
-                            Redug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure aspernatur sit adipisci quaerat unde at nequeRedug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure
-                            </p>
-                            <ul>
-                            <li>
-                                <i class="bi bi-check"></i> Interior design Package
-                            </li>
-                            <li>
-                                <i class="bi bi-check"></i> Building House
-                            </li>
-                            <li>
-                                <i class="bi bi-check"></i> Reparing of Residentail Roof
-                            </li>
-                            <li>
-                                <i class="bi bi-check"></i> Renovaion of Commercial Office
-                            </li>
-                            <li>
-                                <i class="bi bi-check"></i> Make Quality Products
-                            </li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
-                    <!-- End col-->
-                    </div>
-                </div>
-                </div><!-- End About Section -->
-
-                <!-- ======= Blog Section ======= -->
+                
+                <!-- ======= Blog Section Late Post ======= -->
                 <div id="blog" class="blog-area">
                     <div class="blog-inner area-padding">
                         <div class="blog-overly"></div>
@@ -81,7 +26,7 @@
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="section-headline text-center">
-                                        <h2>Latest News</h2>
+                                        <h2>Artikel Terbaru</h2>
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +134,246 @@
                             <!-- /View all post --> 
                         </div>
                     </div>
-                </div><!-- End Blog Section -->
+                </div>
+                <!-- ===== End Blog Section Late Post ===== -->
+
+                <!-- ======= Blog Section Berita ======= -->
+                <div id="blog" class="blog-area">
+                    <div class="blog-inner area-padding">
+                        <div class="blog-overly"></div>
+                        <div class="container ">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="section-headline text-center">
+                                        <h2>Berita Terbaru</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- Start Left Blog -->
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="single-blog">
+                                        <div class="single-blog-img">
+                                            <a href="blog.html">
+                                                <img src="assetsWeb/img/blog/1.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="blog-meta">
+                                            <span class="comments-type">
+                                                <i class="fa fa-comment-o"></i>
+                                                <a href="#">13 comments</a>
+                                            </span>
+                                            <span class="date-type">
+                                                <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                                            </span>
+                                        </div>
+                                        <div class="blog-text">
+                                            <h4>
+                                                <a href="blog.html">Assumenda repud eum veniam</a>
+                                            </h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                                            </p>
+                                        </div>
+                                        <span>
+                                            <a href="blog.html" class="ready-btn">Read more</a>
+                                        </span>
+                                    </div>
+                                    <!-- Start single blog -->
+                                </div>
+                                <!-- End Left Blog-->
+                                <!-- Start Left Blog -->
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="single-blog">
+                                        <div class="single-blog-img">
+                                            <a href="blog.html">
+                                                <img src="assetsWeb/img/blog/2.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="blog-meta">
+                                            <span class="comments-type">
+                                                <i class="fa fa-comment-o"></i>
+                                                <a href="#">130 comments</a>
+                                            </span>
+                                            <span class="date-type">
+                                                <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                                            </span>
+                                        </div>
+                                        <div class="blog-text">
+                                            <h4>
+                                                <a href="blog.html">Explicabo magnam quibusdam.</a>
+                                            </h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                                            </p>
+                                        </div>
+                                        <span>
+                                            <a href="blog.html" class="ready-btn">Read more</a>
+                                        </span>
+                                    </div>
+                                    <!-- Start single blog -->
+                                </div>
+                                <!-- End Left Blog-->
+                                <!-- Start Right Blog-->
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="single-blog">
+                                        <div class="single-blog-img">
+                                            <a href="blog.html">
+                                                <img src="assetsWeb/img/blog/3.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="blog-meta">
+                                            <span class="comments-type">
+                                                <i class="fa fa-comment-o"></i>
+                                                <a href="#">10 comments</a>
+                                            </span>
+                                            <span class="date-type">
+                                                <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                                            </span>
+                                        </div>
+                                        <div class="blog-text">
+                                            <h4>
+                                                <a href="blog.html">Lorem ipsum dolor sit amet</a>
+                                            </h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                                            </p>
+                                        </div>
+                                        <span>
+                                            <a href="blog.html" class="ready-btn">Read more</a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- End Right Blog-->   
+                                <!-- View all post -->
+                                <div class="float-right">
+                                    <br>
+                                    <a href="#" class="btn btn-secondary btn active" role="button" aria-pressed="true">View all post -></a>
+                                </div>
+                            <!-- /View all post --> 
+                        </div>
+                    </div>
+                </div>
+                <!-- ====== End Blog Section Berita ===== -->
+
+                <!-- ======= Blog Section Penelitan & Pengabdian ======= -->
+                <div id="blog" class="blog-area">
+                    <div class="blog-inner area-padding">
+                        <div class="blog-overly"></div>
+                        <div class="container ">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="section-headline text-center">
+                                        <h2>Penilitan dan Pengabdian</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- Start Left Blog -->
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="single-blog">
+                                        <div class="single-blog-img">
+                                            <a href="blog.html">
+                                                <img src="assetsWeb/img/blog/1.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="blog-meta">
+                                            <span class="comments-type">
+                                                <i class="fa fa-comment-o"></i>
+                                                <a href="#">13 comments</a>
+                                            </span>
+                                            <span class="date-type">
+                                                <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                                            </span>
+                                        </div>
+                                        <div class="blog-text">
+                                            <h4>
+                                                <a href="blog.html">Assumenda repud eum veniam</a>
+                                            </h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                                            </p>
+                                        </div>
+                                        <span>
+                                            <a href="blog.html" class="ready-btn">Read more</a>
+                                        </span>
+                                    </div>
+                                    <!-- Start single blog -->
+                                </div>
+                                <!-- End Left Blog-->
+                                <!-- Start Left Blog -->
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="single-blog">
+                                        <div class="single-blog-img">
+                                            <a href="blog.html">
+                                                <img src="assetsWeb/img/blog/2.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="blog-meta">
+                                            <span class="comments-type">
+                                                <i class="fa fa-comment-o"></i>
+                                                <a href="#">130 comments</a>
+                                            </span>
+                                            <span class="date-type">
+                                                <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                                            </span>
+                                        </div>
+                                        <div class="blog-text">
+                                            <h4>
+                                                <a href="blog.html">Explicabo magnam quibusdam.</a>
+                                            </h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                                            </p>
+                                        </div>
+                                        <span>
+                                            <a href="blog.html" class="ready-btn">Read more</a>
+                                        </span>
+                                    </div>
+                                    <!-- Start single blog -->
+                                </div>
+                                <!-- End Left Blog-->
+                                <!-- Start Right Blog-->
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <div class="single-blog">
+                                        <div class="single-blog-img">
+                                            <a href="blog.html">
+                                                <img src="assetsWeb/img/blog/3.jpg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="blog-meta">
+                                            <span class="comments-type">
+                                                <i class="fa fa-comment-o"></i>
+                                                <a href="#">10 comments</a>
+                                            </span>
+                                            <span class="date-type">
+                                                <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+                                            </span>
+                                        </div>
+                                        <div class="blog-text">
+                                            <h4>
+                                                <a href="blog.html">Lorem ipsum dolor sit amet</a>
+                                            </h4>
+                                            <p>
+                                                Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
+                                            </p>
+                                        </div>
+                                        <span>
+                                            <a href="blog.html" class="ready-btn">Read more</a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- End Right Blog-->   
+                                <!-- View all post -->
+                                <div class="float-right">
+                                    <br>
+                                    <a href="#" class="btn btn-secondary btn active" role="button" aria-pressed="true">View all post -></a>
+                                </div>
+                            <!-- /View all post --> 
+                        </div>
+                    </div>
+                </div>
+                <!-- ====== End Blog Section Berita ===== -->
                 
                 <!-- ======= Contact Section ======= -->
                 <div id="contact" class="contact-area">
