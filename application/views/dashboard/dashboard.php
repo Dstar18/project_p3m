@@ -68,7 +68,7 @@
                                     <div class="small-box bg-warning">
                                         <div class="inner">
                                             <h3>150</h3>
-                                            <p>Data Alumni</p>
+                                            <p>Data Petugas</p>
                                         </div>
                                         <a href="<?= base_url('admin/Petugas')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                     </div>

@@ -37,6 +37,11 @@
                                         <div class="card-body">
 
                                             <div class="form-group">
+                                                <label for="petugasNIP">NIP</label>
+                                                <input type="number" id="petugasNIP" name="petugasNIP" class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label for="petugasNama">Nama</label>
                                                 <input type="text" id="petugasNama" name="petugasNama" class="form-control">
                                             </div>
@@ -52,13 +57,13 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="petugasUsername">Username</label>
-                                                <input type="text" id="petugasUsername" name="petugasUsername" class="form-control">
+                                                <label for="petugasPassword">Password</label>
+                                                <input type="text" id="petugasPassword" name="petugasPassword" class="form-control">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="petugasPassword">Password</label>
-                                                <input type="text" id="petugasPassword" name="petugasPassword" class="form-control">
+                                                <label for="petugasImgProfil">Foto Profil</label>
+                                                <input type="file" id="petugasImgProfil" name="petugasImgProfil" class="form-control-file">
                                             </div>
 
                                             <div class="form-group">

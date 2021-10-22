@@ -58,13 +58,13 @@
                     </a>
                 </li>
 
-                <!-- Menu Pages
+                <!-- Menu Halaman -->
                 <li class="nav-item">
-                    <a href="<?= base_url('admin/Pages')?>" class="nav-link">
+                    <a href="<?= base_url('admin/Halaman')?>" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
-                        <p>Pages</p>
+                        <p>Halaman</p>
                     </a>
-                </li> -->
+                </li>
 
                 <!-- Menu Pengaturan Website -->
                 <li class="nav-item">
@@ -84,7 +84,7 @@
 
                 <!-- Lihat WEB -->
                 <li class="nav-item">
-                    <a href="<?= base_url()?>" class="nav-link">
+                    <a href="<?= base_url()?>" target="_blank" class="nav-link">
                         <i class="nav-icon fa fa-eye"></i>
                         <p>Lihat Website</p>
                     </a>

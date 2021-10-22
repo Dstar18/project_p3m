@@ -7,7 +7,7 @@
                     <div class="footer-content">
                         <div class="footer-head">
                             <div class="footer-logo">
-                                <h2><span>e</span>Business</h2>
+                                <h2><span>LPPM</span>ITDA</h2>
                             </div>
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
                             <div class="footer-icons">
@@ -16,13 +16,10 @@
                                         <a href="#"><i class="bi bi-facebook"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="bi bi-twitter"></i></a>
-                                    </li>
-                                    <li>
                                         <a href="#"><i class="bi bi-instagram"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                                        <a href="#"><i class="bi bi-youtube"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -33,14 +30,16 @@
                 <div class="col-md-4">
                     <div class="footer-content">
                         <div class="footer-head">
-                            <h4>information</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                            </p>
-                            <div class="footer-contacts">
-                                <p><span>Tel:</span> +123 456 789</p>
-                                <p><span>Email:</span> contact@example.com</p>
-                                <p><span>Working Hours:</span> 9am-5pm</p>
+                            <h4>INFORMATION</h4>
+                            Gedung Rektorat ITDA Jl. Janti Blok R Lanud Adisutjipto, Yogyakarta
+                            <a href="https://www.google.com/maps/place/Institut+Teknologi+Dirgantara+Adisutjipto/@-7.7982825,110.4149543,17z/data=!3m1!4b1!4m5!3m4!1s0x2e7a57572a5a3201:0xfc1612be0ff6ea98!8m2!3d-7.7982825!4d110.417143" target="_blank">(Maps)</a>
+                            <div class="footer-contacts"><br>
+                                <p>Layanan Helpdesk</p> 
+                                <p><span>Hari:</span> Senin - Jumat</p>
+                                <p><span>Waktu:</span> 08.00 s.d. 16.00</p>
+                                <p><span>Email:</span> lppm@itda.ac.id</p>
+                                <p><span>Telp:</span> 0274 451263 ext 107</p>
+                                <p><span>Fax:</span> 0274 415265</p>
                             </div>
                         </div>
                     </div>
@@ -49,14 +48,9 @@
                 <div class="col-md-4">
                     <div class="footer-content">
                         <div class="footer-head">
-                            <h4>Instagram</h4>
-                            <div class="flicker-img">
-                                <a href="#"><img src="<?= base_url()?>assetsWeb/img/portfolio/1.jpg" alt=""></a>
-                                <a href="#"><img src="<?= base_url()?>assetsWeb/img/portfolio/2.jpg" alt=""></a>
-                                <a href="#"><img src="<?= base_url()?>assetsWeb/img/portfolio/3.jpg" alt=""></a>
-                                <a href="#"><img src="<?= base_url()?>assetsWeb/img/portfolio/4.jpg" alt=""></a>
-                                <a href="#"><img src="<?= base_url()?>assetsWeb/img/portfolio/5.jpg" alt=""></a>
-                                <a href="#"><img src="<?= base_url()?>assetsWeb/img/portfolio/6.jpg" alt=""></a>
+                            <h4>YouTube</h4>
+                            <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=Qy8t1Biq-Eg"></iframe>
                             </div>
                         </div>
                     </div>

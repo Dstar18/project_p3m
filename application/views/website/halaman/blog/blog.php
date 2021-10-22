@@ -15,8 +15,12 @@
             <main id="main">
 
                 <!-- carouselBlog -->
-                    <?php $this->load->view('_partialsWeb/carouselBlog.php');?>
+                <?php $this->load->view('_partialsWeb/carouselBlog.php');?>
                 <!-- /carouselBlog -->
+
+                <!-- BreadcrumbWeb -->
+                <?php $this->load->view('_partialsWeb/breadcrumbWeb.php');?>
+                <!-- BreadcrumbWeb -->
 
                <!-- ======= Page Content ======= -->
                <div id="about" class="about-area area-padding">
@@ -66,6 +70,10 @@
             
             </main>
             <!-- /Main Content -->
+
+            <!-- BreadcrumbWeb -->
+            <?php $this->load->view('_partialsWeb/space.php');?>
+            <!-- BreadcrumbWeb -->
 
             <!-- Footer -->
             <?php $this->load->view('_partialsWeb/footer.php');?>

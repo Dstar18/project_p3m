@@ -19,6 +19,7 @@ class ArtikelKategori extends CI_Controller{
     // View Tampilan Add Artikel
     public function viewAddArtikelKategori(){
         $data['dataKategori'] = $this->Kategori_m->getAll()->result();
+        // echo json_encode($data);
         $this->load->view('ArtikelKategori/artikelkategori_add', $data);
     }
     //Add Artikel

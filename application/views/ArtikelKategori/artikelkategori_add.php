@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <?php
-
-use function PHPSTORM_META\type;
-
-$this->load->view('_partials/head.php');?>
+        <?php $this->load->view('_partials/head.php');?>
     </head>
 
     <body class="hold-transition sidebar-mini">
@@ -41,10 +37,10 @@ $this->load->view('_partials/head.php');?>
                                     <input type="hidden" id="artikelDateInsert" name="artikelDateInsert" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control">
                                     <input type="hidden" id="artikelDateUpdate" name="artikelDateUpdate" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control">
 
-                                    <!-- <div class="form-group ">
+                                    <div class="form-group ">
                                         <label for="arkatPetugasId">ID Penulis</label>
                                         <input type="number" id="arkatPetugasId" name="arkatPetugasId" class="form-control">
-                                    </div> -->
+                                    </div>
                                     
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="artikelJudul" placeholder="Judul Artikel">

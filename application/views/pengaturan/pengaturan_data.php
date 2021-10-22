@@ -52,7 +52,7 @@
 
                                             <div class="form-group">
                                                 <label for="pengaturanLogo">Logo</label>
-                                                <input type="file" id="pengaturanLogo" name="pengaturanLogo" value="<?=$rowPengaturan->pengaturan_logo?>" class="form-control-file" readonly>
+                                                <input type="text" id="pengaturanLogo" name="pengaturanLogo" value="<?=$rowPengaturan->pengaturan_logo?>" class="form-control" readonly>
                                             </div>
 
                                             <div class="form-group">

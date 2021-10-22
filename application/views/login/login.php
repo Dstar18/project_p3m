@@ -9,7 +9,7 @@
                 
             <div class="card card-outline card-primary">
                 <div class="card-header text-center">
-                    <a class="h1"><b>P3M</b>ITDA</a>
+                    <a class="h1"><b>LPPM</b>ITDA</a>
                 </div>
                 <div class="card-body">
                     <p class="login-box-msg">Sign in to start your session</p>

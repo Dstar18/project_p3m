@@ -26,14 +26,7 @@
                     <div class="card">
                         <!-- Navbar Content -->
                         <div class="card-header">
-                            <h3 class="card-title">Data Petugas</h3>
-                            <div class="card-tools">
-                                <a href="<?= base_url('admin/Petugas/viewAddPetugas')?>">
-                                <button type="button" class="btn btn-block btn-primary">
-                                    Tambah Data
-                                </button>
-                                </a>
-                            </div>
+                            <h3 class="card-title">Data Halaman</h3>
                         </div>
                         <!-- /Navbar Content -->
                         <!-- Page Content -->
@@ -42,14 +35,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>NIP</th>
-                                        <th>Nama</th>
-                                        <th>Email</th>
-                                        <th>No HP</th>
-                                        <th>Password</th>
-                                        <th>Img Profil</th>
-                                        <th>Status</th>
-                                       
+                                        <th>Judul Halaman</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -57,26 +43,13 @@
 
                                 <?php 
                                     $i = 1;
-                                    foreach($dataPetugas as $rowPetugas){ ?>
+                                    foreach($dataHalaman as $rowHalaman){ ?>
                                         <tr>
                                             <td><?=$i++?></td>
-                                            <td><?=$rowPetugas->petugas_NIP?></td>
-                                            <td><?=$rowPetugas->petugas_nama?></td>
-                                            <td><?=$rowPetugas->petugas_email?></td>
-                                            <td><?=$rowPetugas->petugas_nohp?></td>
-                                            <td><?=$rowPetugas->petugas_password?></td>
-                                            <td><?=$rowPetugas->petugas_img_profil?></td>
-                                            <?php if($rowPetugas->petugas_level == 1){ ?>
-                                                <td class=" ">Admin</td>
-                                            <?php }else if($rowPetugas->petugas_level == 2){ ?>
-                                                <td class=" ">Penulis</td>
-                                            <?php } ?>
+                                            <td><?=$rowHalaman->halaman_judul?></td>
                                             <td>
-                                                <a href="<?= base_url('admin/Petugas/viewEditPetugas/'.$rowPetugas->petugas_id)?>">
+                                                <a href="<?= base_url('admin/Halaman/viewEditHalaman/'.$rowHalaman->halaman_id)?>">
                                                     <button class="btn btn-sm btn-warning" id="btn-edit">Edit</button>
-                                                </a>
-                                                <a href="<?= base_url('admin/Petugas/deletePetugas/'.$rowPetugas->petugas_id)?>">
-                                                    <button class="btn btn-sm btn-danger" id="btn-delete">Delete</button>
                                                 </a>
                                             </td>
                                         </tr>

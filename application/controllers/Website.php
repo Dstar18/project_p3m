@@ -8,14 +8,14 @@ class Website extends CI_Controller {
         $this->load->library('form_validation');
     }
 
-    // Menampilkan halaman website
-    public function jurnal(){
-		$this->load->view('website/halaman/jurnal');
-	}
-
     // Menampilkan dashboard website
 	public function dashboard(){
 		$this->load->view('website/dashboard');
+	}
+
+    // Menampilkan dashboard Blog
+	public function blog(){
+		$this->load->view('website/halaman/blog/blog');
 	}
 
 

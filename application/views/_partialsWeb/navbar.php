@@ -1,37 +1,43 @@
 <header id="header" class="fixed-top d-flex align-items-center">
   <div class="container d-flex justify-content-between">
     <div class="logo">
-      <h1><a href="<?= base_url('Website/dashboard')?>"><span>P3M</span>ITDA</a></h1>
+      <h1><a href="<?= base_url('')?>"><span>LPPM</span>ITDA</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
     </div>
     
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto active" href="<?= base_url('Website/dashboard')?>">Beranda</a></li>
-        <li class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-down"></i></a>
+        <li><a class="nav-link" href="<?= base_url('')?>">Beranda</a></li>
+
+        <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a href="#">Drop Down 1</a></li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
+            <li><a href="#" target="_blank">Visi & Misi</a></li>
+            <li><a href="#" target="_blank">Struktur Organisasi</a></li>
           </ul>
         </li>
-        <li class="dropdown"><a href="#"><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
+
+        <li><a class="nav-link scrollto" href="#">Pengumuman</a></li>
+
+        <li><a class="nav-link scrollto" href="<?= base_url('Website/blog')?>">Blog</a></li>
+
+        <li class="dropdown"><a href="#"><span>Publikasi</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a href="#">Drop Down 1</a></li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
+            <li><a href="https://ejournals.itda.ac.id/" target="_blank">Jurnal</a></li>
+            <li><a href="https://senatik.itda.ac.id/index.php/senatik" target="_blank">Seminar Senatik</a></li>
           </ul>
         </li>
-        <li><a class="nav-link scrollto" href="<?= base_url('Website/jurnal')?>">Jurnal</a></li>
-        <li class="dropdown"><a href="#"><span>Puslitbang</span> <i class="bi bi-chevron-down"></i></a>
+       
+        <li class="dropdown"><a href="#"><span>Link Utama</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a href="#">Drop Down 1</a></li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
+            <li><a href="http://simlitabmas.ristekdikti.go.id/" target="_blank">Simlitabmas</a></li>
+            <li><a href="http://sinta.ristekdikti.go.id/" target="_blank">Sinta</a></li>
+            <li><a href="http://itda.ac.id/" target="_blank">ITDA</a></li>
+            <li><a href="https://perpustakaan.itda.ac.id/" target="_blank">Perpustakaan ITDA</a></li>
+            <li><a href="http://eprints.stta.ac.id/" target="_blank">Repositori ITDA</a></li>
           </ul>
         </li>
-        <li><a class="nav-link scrollto" href="#portfolio">Blog</a></li>
+        
         <li><a class="nav-link scrollto" href="<?= base_url('admin/Auth/login')?>"><b>LOGIN</b></a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>

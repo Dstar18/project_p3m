@@ -35,9 +35,15 @@
                                     <!-- Page Content -->
                                     <form action="<?=base_url('admin/Petugas/editPetugas')?>" method="POST">
                                         <div class="card-body">
+
+                                            <div class="form-group">
+                                                <label for="petugasNIP">NIP</label>
+                                                <input type="hidden" id="petugasId" name="petugasId" value="<?=$dataPetugas->petugas_id?>" class="form-control">
+                                                <input type="number" id="petugasNIP" name="petugasNIP" value="<?=$dataPetugas->petugas_NIP?>" class="form-control">
+                                            </div>
+
                                             <div class="form-group">
                                                 <label for="petugasNama">Nama</label>
-                                                <input type="hidden" id="petugasId" name="petugasId" value="<?=$dataPetugas->petugas_id?>" class="form-control">
                                                 <input type="text" id="petugasNama" name="petugasNama" value="<?=$dataPetugas->petugas_nama?>" class="form-control">
                                             </div>
 
@@ -52,13 +58,13 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="petugasUsername">Username</label>
-                                                <input type="text" id="petugasUsername" name="petugasUsername" value="<?=$dataPetugas->petugas_username?>" class="form-control">
+                                                <label for="petugasPassword">Password</label>
+                                                <input type="text" id="petugasPassword" name="petugasPassword" value="<?=$dataPetugas->petugas_password?>" class="form-control">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="petugasPassword">Password</label>
-                                                <input type="text" id="petugasPassword" name="petugasPassword" value="<?=$dataPetugas->petugas_password?>" class="form-control">
+                                                <label for="petugasImgProfil">Foto Profil</label>
+                                                <input type="file" id="petugasImgProfil" name="petugasImgProfil" value="<?=$dataPetugas->petugas_img_profil?>" class="form-control-file">
                                             </div>
 
                                             <div class="form-group">
