@@ -4,14 +4,14 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="slider-content text-center">
-                    <!-- <div class="header-bottom">
+                    <div class="header-bottom">
                         <div class="layer2">
-                            <h1 class="title2">Blog Details </h1>
+                            <h1 class="title2">My Blog </h1>
                         </div>
-                        <div class="layer3">
+                        <!-- <div class="layer3">
                             <h2 class="title3">profesional Blog Page</h2>
-                        </div>
-                    </div> -->
+                        </div> -->
+                    </div>
                 </div>
             </div>
         </div>

@@ -22,6 +22,13 @@ class Artikel_m extends CI_Model{
         return $query;
     }
 
+    public function getCountPasien(){
+        $this->db->select('COUNT(artikel_id) as total');
+        $this->db->from('tb_artikel');
+        $query = $this->db->get();
+        return $query;
+    }
+
     // public function jointable(){
     //     $this->db->select('*');
     //     $this->db->from('tb_artikel');

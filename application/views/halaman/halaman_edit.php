@@ -45,7 +45,7 @@ $this->load->view('_partials/head.php');?>
                                         </div>
 
                                         <div class="form-group">
-                                            <textarea name="halamanContent[]" id="compose-textarea" class="textarea" style="height: 300px"><?php $dataHalaman['halaman_content'] ?></textarea>
+                                            <textarea name="halamanContent" id="compose-textarea" class="textarea" style="height: 300px" ><?=$dataHalaman->halaman_content?></textarea>
                                         </div>
 
                                     </div>

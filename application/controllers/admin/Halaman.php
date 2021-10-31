@@ -20,6 +20,7 @@ class Halaman extends CI_Controller{
     public function viewEditHalaman($id){
         $data['dataHalaman'] = $this->Halaman_m->getById($id)->row();
         // echo json_encode($data);
+        // var_dump($data);
         $this->load->view('halaman/halaman_edit',$data);
     }
 

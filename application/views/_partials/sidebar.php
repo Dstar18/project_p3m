@@ -4,7 +4,7 @@
     <!-- Brand Logo -->
     <a href="<?= base_url('admin/Dashboard')?>" class="brand-link">
       <img src="<?= base_url()?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">P3M ITDA</span>
+      <span class="brand-text font-weight-light">LPPM ITDA</span>
     </a>
 
     <!-- Sidebar -->
