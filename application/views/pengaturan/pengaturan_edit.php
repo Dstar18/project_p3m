@@ -33,38 +33,39 @@
                                     </div>
                                     <!-- /Navbar Content -->
                                     <!-- Page Content -->
-                                    
-                                    <form action="<?=base_url('admin/Pengaturan/editPengaturan')?>" method="POST">
+
+                                    <form action="<?=base_url('admin/Pengaturan/editPengaturan') ?>" enctype="multipart/form-data" method="post">
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="pengaturanNama">Nama Website</label>
-                                                <input type="hidden" id="pengaturanId" name="pengaturanId" value="<?=$dataPengaturan->pengaturan_id?>" class="form-control">
-                                                <input type="text" id="pengaturanNama" name="pengaturanNama" value="<?=$dataPengaturan->pengaturan_nama?>" class="form-control">
+                                                <input type="hidden" name="pengaturan_id" value="<?=$dataPengaturan->pengaturan_id?>" class="form-control">
+                                                <input type="text" name="pengaturan_nama" value="<?=$dataPengaturan->pengaturan_nama?>" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="pengaturanLogo">Logo</label>
-                                                <input type="file" id="pengaturanLogo" name="pengaturanLogo" value="<?=$dataPengaturan->pengaturan_logo?>" class="form-control-file">
+                                                <input type="file" name="pengaturan_logo" class="form-control" >
+                                                <input type="text" name="pengaturan_logo_old" class="form-control" value="<?=$dataPengaturan->pengaturan_logo?>"  readonly>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="pengaturanTelp">No Telefon</label>
-                                                <input type="number" id="pengaturanTelp" name="pengaturanTelp" value="<?=$dataPengaturan->pengaturan_telp?>" class="form-control" >
+                                                <input type="number" name="pengaturan_telp" value="<?=$dataPengaturan->pengaturan_telp?>" class="form-control" >
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="pengaturanFb">Link Facebook</label>
-                                                <input type="text" id="pengaturanFb" name="pengaturanFb" value="<?=$dataPengaturan->pengaturan_fb?>" class="form-control">
+                                                <input type="text" name="pengaturan_fb" value="<?=$dataPengaturan->pengaturan_fb?>" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="pengaturanIg">Link Instagram</label>
-                                                <input type="text" id="pengaturanIg" name="pengaturanIg" value="<?=$dataPengaturan->pengaturan_ig?>" class="form-control">
+                                                <input type="text" name="pengaturan_ig" value="<?=$dataPengaturan->pengaturan_ig?>" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="pengaturanYtb">Link Youtube</label>
-                                                <input type="text" id="pengaturanYtb" name="pengaturanYtb" value="<?=$dataPengaturan->pengaturan_ytb?>" class="form-control">
+                                                <input type="text" name="pengaturan_ytb" value="<?=$dataPengaturan->pengaturan_ytb?>" class="form-control">
                                             </div>
                                         </div>
                                         <div class="card-footer">

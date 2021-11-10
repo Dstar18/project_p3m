@@ -78,19 +78,41 @@ class Petugas extends CI_Controller{
     //Edit Petugas
     public function editPetugas(){
         $post = $this->input->post(null, TRUE);
-        // echo json_encode($post);
-        $data = $this->Petugas_m->editPetugas($post);
-        if($data == TRUE){
-           
-            header("Location: index");
-            // $respon = array(
-            //     'status' => 'succes'
-            // ); 
-        }else{
-            $respon = array(
-                'status' => 'gagal'
+        if (!empty($_FILES["petugas_img_profil"]["name"])) {
+            $file = $this->uploadImage();
+            $datax['xempty'] = $file; 
+            if($file['status'] == true){
+                if($file['name'] != null){
+                    $petugas_img_profil = $file['name']; 
+                } 
+            } else{
+                $response = array(
+                    'status' 	    => 'error-upload',
+                    'quoFile'       => 'tidak Bisa Upload File, Silahkan Di cek Kembali Filenya'
+                );
+            }
+        } else {
+            $petugas_img_profil = $post['petugas_img_profil_old'];
+        }
+        $parse = array(
+            'petugas_id'            => $post['petugas_id'],
+            'petugas_NIP'           => $post['petugas_NIP'],
+            'petugas_nama'          => $post['petugas_nama'],
+            'petugas_email'         => $post['petugas_email'],
+            'petugas_nohp'          => $post['petugas_nohp'],
+            'petugas_password'      => $post['petugas_password'],
+            'petugas_img_profil'    => $petugas_img_profil,
+            'petugas_level'         => $post['petugas_level'],
+        );
+        $this->Petugas_m->editPetugas($parse);
+        if($this->db->affected_rows()>0){
+            $response = array(
+                'status'    => 'success',
             );
         }
+        echo json_encode($response);
+        redirect(base_url().'admin/Petugas');
+
     }
 
     // Delete Petugas

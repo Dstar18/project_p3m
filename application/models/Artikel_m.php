@@ -22,7 +22,7 @@ class Artikel_m extends CI_Model{
         return $query;
     }
 
-    public function getCountPasien(){
+    public function getCountArtikel(){
         $this->db->select('COUNT(artikel_id) as total');
         $this->db->from('tb_artikel');
         $query = $this->db->get();

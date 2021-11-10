@@ -44,33 +44,39 @@
                                 <!-- small box 1 -->
                                 <div class="col-lg-3 col-6">
                                     <div class="small-box bg-info">
-                                        <div class="inner">
-                                            <h3><?=$dataArtikel->total?></h3>
-                                            <p>Data Artikel</p>
-                                        </div>
-                                        <a href="<?= base_url('admin/ArtikelKategori')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                        <?php if($this->fungsi->petugas_login()->petugas_level == 1 || $this->fungsi->petugas_login()->petugas_level == 2) {?>
+                                            <div class="inner">
+                                                <h3><?=$dataArtikelKategori->total?></h3>
+                                                <p>Data Artikel</p>
+                                            </div>
+                                            <a href="<?= base_url('admin/ArtikelKategori')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <!-- /small box 1 -->
                                 <!-- small box 2 -->
                                 <div class="col-lg-3 col-6">
                                     <div class="small-box bg-success">
-                                        <div class="inner">
-                                            <h3><?=$dataKategori->total?></h3>
-                                            <p>Data Kategori</p>
-                                        </div>
-                                        <a href="<?= base_url('admin/Kategori')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                        <?php if($this->fungsi->petugas_login()->petugas_level == 1 || $this->fungsi->petugas_login()->petugas_level == 2) {?>
+                                            <div class="inner">
+                                                <h3><?=$dataKategori->total?></h3>
+                                                <p>Data Kategori</p>
+                                            </div>
+                                            <a href="<?= base_url('admin/Kategori')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <!-- /small box 2 -->
                                 <!-- small box 3 -->
                                 <div class="col-lg-3 col-6">
                                     <div class="small-box bg-warning">
-                                        <div class="inner">
-                                            <h3><?=$dataPetugas->total?></h3>
-                                            <p>Data Petugas</p>
-                                        </div>
-                                        <a href="<?= base_url('admin/Petugas')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                        <?php if($this->fungsi->petugas_login()->petugas_level == 1) {?>
+                                            <div class="inner">
+                                                <h3><?=$dataPetugas->total?></h3>
+                                                <p>Data Petugas</p>
+                                            </div>
+                                            <a href="<?= base_url('admin/Petugas')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <!-- /small box 3 -->

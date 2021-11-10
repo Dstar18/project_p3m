@@ -18,7 +18,7 @@ class Kategori_m extends CI_Model{
         return $query;
     }
 
-    public function getCountPasien(){
+    public function getCountKategori(){
         $this->db->select('COUNT(kategori_id) as total');
         $this->db->from('tb_kategori');
         $query = $this->db->get();

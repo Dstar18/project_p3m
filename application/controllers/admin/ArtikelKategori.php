@@ -17,8 +17,11 @@ class ArtikelKategori extends CI_Controller{
     }
 
     // View Tampilan Add Artikel
-    public function viewAddArtikelKategori(){
+    public function viewAddArtikelKategori($id){
+        $data['dataArtikel'] = $this->Artikel_m->getAll()->result();
         $data['dataKategori'] = $this->Kategori_m->getAll()->result();
+        $data['dataPetugas'] = $this->Petugas_m->getAll()->result();
+        $data['dataArtikelKategori'] = $this->ArtikelKategori_m->getArkatID($id)->result();
         // echo json_encode($data);
         $this->load->view('ArtikelKategori/artikelkategori_add', $data);
     }

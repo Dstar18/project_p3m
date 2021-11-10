@@ -40,27 +40,27 @@
 
                                             <div class="form-group">
                                                 <label for="petugas_NIP">NIP</label>
-                                                <input type="number" name="petugas_NIP" class="form-control" >
+                                                <input type="number" name="petugas_NIP" class="form-control" required>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="petugas_nama">Nama</label>
-                                                <input type="text" name="petugas_nama" class="form-control" >
+                                                <input type="text" name="petugas_nama" class="form-control" required>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="petugas_email">Email</label>
-                                                <input type="text" name="petugas_email" class="form-control" >
+                                                <input type="text" name="petugas_email" class="form-control" required>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="petugas_nohp">No HP</label>
-                                                <input type="number" name="petugas_nohp" class="form-control" >
+                                                <input type="number" name="petugas_nohp" class="form-control" required>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="petugas_password">Password</label>
-                                                <input type="text" name="petugas_password" class="form-control" >
+                                                <input type="text" name="petugas_password" class="form-control" required>
                                             </div>
 
                                             <div class="form-group">

@@ -20,15 +20,15 @@ class Pengaturan_m extends CI_Model{
 
     public function editPengaturan($post){
         $parse = array(
-            'pengaturan_nama' => $post['pengaturanNama'],
-            'pengaturan_logo' => $post['pengaturanLogo'],
-            'pengaturan_telp' => $post['pengaturanTelp'],
-            'pengaturan_fb' => $post['pengaturanFb'],
-            'pengaturan_ig' => $post['pengaturanIg'],
-            'pengaturan_ytb' => $post['pengaturanYtb'],
+            'pengaturan_nama'   => $post['pengaturan_nama'],
+            'pengaturan_logo'   => $post['pengaturan_logo'],
+            'pengaturan_telp'   => $post['pengaturan_telp'],
+            'pengaturan_fb'     => $post['pengaturan_fb'],
+            'pengaturan_ig'     => $post['pengaturan_ig'],
+            'pengaturan_ytb'    => $post['pengaturan_ytb'],
 
         );
-        $this->db->where('pengaturan_id', $post['pengaturanId']);
+        $this->db->where('pengaturan_id', $post['pengaturan_id']);
         $query = $this->db->update('tb_pengaturan', $parse);
         return $query;
     }

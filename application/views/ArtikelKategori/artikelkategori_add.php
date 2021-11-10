@@ -24,7 +24,7 @@
 
             <!-- Main Content -->
             <section class="content">
-                <form action="<?=base_url('admin/ArtikelKategori/addArtikelKategori')?>" method="POST">
+                <form action="<?=base_url('admin/ArtikelKategori/addArtikelKategori')?>" enctype="multipart/form-data" method="POST">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-9">
@@ -33,20 +33,18 @@
                                     <h3 class="card-title">New Artikel</h3>
                                 </div>
                                 <div class="card-body">
-
+                                    <!-- Waktu -->
                                     <input type="hidden" id="artikelDateInsert" name="artikelDateInsert" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control">
                                     <input type="hidden" id="artikelDateUpdate" name="artikelDateUpdate" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control">
 
-                                    <div class="form-group ">
-                                        <label for="arkatPetugasId">ID Penulis</label>
-                                        <input type="number" id="arkatPetugasId" name="arkatPetugasId" class="form-control">
-                                    </div>
+                                    <!-- ID Penulis/Admin -->
+                                    <input type="hidden" name="arkatPetugasId" class="form-control" value="<?=$this->fungsi->petugas_login()->petugas_id?>">
                                     
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="artikelJudul" placeholder="Judul Artikel">
+                                        <input type="text" class="form-control" name="artikelJudul" placeholder="Judul Artikel" required>
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="artikelContent" id="compose-textarea" class="form-control" style="height: 300px"></textarea>
+                                        <textarea name="artikelContent" id="compose-textarea" class="form-control" style="height: 300px" required></textarea>
                                     </div>
                                 </div>
                             </div>

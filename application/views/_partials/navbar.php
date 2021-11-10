@@ -13,11 +13,11 @@
         <li class="nav-item dropdown open" style="padding-left: 15px;">
             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
               <!-- <img src="<?= base_url()?>assets/images/admin.jpg" class="img-circle elevation-2" alt=""> -->
-              Admin
+              <?=$this->fungsi->petugas_login()->petugas_nama?>
             </a>
             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item"  href="javascript:;"> Profile</a>
-                <a class="dropdown-item"  href="<?= site_url('Auth/logout') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                <a class="dropdown-item"  href="<?= site_url('admin/Auth/logout') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
             </div>
         </li>
     </ul>

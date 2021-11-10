@@ -14,18 +14,21 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="<?= base_url()?>assets/images/admin.jpg" class="img-circle elevation-2" alt="User Image">
+          <!-- <img src="<?= base_url('./upload/imgpetugas/'.$dataPetugas->petugas_img_profil)?>" class="img-circle elevation-2" alt="User Image"> -->
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="#" class="d-block"><?=$this->fungsi->petugas_login()->petugas_nama?></a>
         </div>
     </div>
 
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-            <a href="<?= base_url('admin/ArtikelKategori/viewAddArtikelKategori')?>" class="nav-link">
-                <i class="nav-icon fas fa-plus"></i>
-                <p>POSTINGAN BARU</p>
-            </a>
+            <?php if($this->fungsi->petugas_login()->petugas_level == 1 || $this->fungsi->petugas_login()->petugas_level == 2) {?>
+                <a href="<?= base_url('admin/ArtikelKategori/viewAddArtikelKategori')?>" class="nav-link">
+                    <i class="nav-icon fas fa-plus"></i>
+                    <p>POSTINGAN BARU</p>
+                </a>
+            <?php } ?>
         </li>
     </ul>
 
@@ -43,44 +46,54 @@
                 </li>
 
                 <!-- Menu Artikel -->
+                <?php if($this->fungsi->petugas_login()->petugas_level == 1 || $this->fungsi->petugas_login()->petugas_level == 2) {?>
                 <li class="nav-item">
                     <a href="<?= base_url('admin/ArtikelKategori')?>" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>Artikel</p>
                     </a>
                 </li>
+                <?php } ?>
 
                 <!-- Menu Kategori -->
+                <?php if($this->fungsi->petugas_login()->petugas_level == 1 || $this->fungsi->petugas_login()->petugas_level == 2) {?>
                 <li class="nav-item">
                     <a href="<?= base_url('admin/Kategori')?>" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Kategori</p>
                     </a>
                 </li>
+                <?php } ?>
 
                 <!-- Menu Halaman -->
+                <?php if($this->fungsi->petugas_login()->petugas_level == 1) {?>
                 <li class="nav-item">
                     <a href="<?= base_url('admin/Halaman')?>" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>Halaman</p>
                     </a>
                 </li>
+                <?php } ?>
 
                 <!-- Menu Pengaturan Website -->
+                <?php if($this->fungsi->petugas_login()->petugas_level == 1) {?>
                 <li class="nav-item">
                     <a href="<?= base_url('admin/Pengaturan')?>" class="nav-link">
                         <i class="nav-icon fa fa-cog"></i>
                         <p>Pengaturan Website</p>
                     </a>
                 </li>
+                <?php } ?>
 
                 <!-- Menu Data Petugas -->
+                <?php if($this->fungsi->petugas_login()->petugas_level == 1) {?>
                 <li class="nav-item">
                     <a href="<?= base_url('admin/Petugas')?>" class="nav-link">
                         <i class="nav-icon fa fa-users"></i>
                         <p>Data Petugas</p>
                     </a>
                 </li>
+                <?php } ?>
 
                 <!-- Lihat WEB -->
                 <li class="nav-item">

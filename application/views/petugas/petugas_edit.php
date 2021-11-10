@@ -33,43 +33,44 @@
                                     </div>
                                     <!-- /Navbar Content -->
                                     <!-- Page Content -->
-                                    <form action="<?=base_url('admin/Petugas/editPetugas')?>" method="POST">
+                                    <form action="<?=base_url('admin/Petugas/editPetugas') ?>" enctype="multipart/form-data" method="post">
                                         <div class="card-body">
 
                                             <div class="form-group">
                                                 <label for="petugasNIP">NIP</label>
-                                                <input type="hidden" id="petugasId" name="petugasId" value="<?=$dataPetugas->petugas_id?>" class="form-control">
-                                                <input type="number" id="petugasNIP" name="petugasNIP" value="<?=$dataPetugas->petugas_NIP?>" class="form-control">
+                                                <input type="hidden" name="petugas_id" value="<?=$dataPetugas->petugas_id?>" class="form-control">
+                                                <input type="number" name="petugas_NIP" value="<?=$dataPetugas->petugas_NIP?>" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="petugasNama">Nama</label>
-                                                <input type="text" id="petugasNama" name="petugasNama" value="<?=$dataPetugas->petugas_nama?>" class="form-control">
+                                                <input type="text" name="petugas_nama" value="<?=$dataPetugas->petugas_nama?>" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="petugasEmail">Email</label>
-                                                <input type="text" id="petugasEmail" name="petugasEmail" value="<?=$dataPetugas->petugas_email?>" class="form-control">
+                                                <input type="text" name="petugas_email" value="<?=$dataPetugas->petugas_email?>" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="petugasNohp">No HP</label>
-                                                <input type="number" id="petugasNohp" name="petugasNohp" value="<?=$dataPetugas->petugas_nohp?>" class="form-control">
+                                                <input type="number" name="petugas_nohp" value="<?=$dataPetugas->petugas_nohp?>" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="petugasPassword">Password</label>
-                                                <input type="text" id="petugasPassword" name="petugasPassword" value="<?=$dataPetugas->petugas_password?>" class="form-control">
+                                                <input type="text" name="petugas_password" value="<?=$dataPetugas->petugas_password?>" class="form-control">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="petugasImgProfil">Foto Profil</label>
-                                                <input type="file" id="petugasImgProfil" name="petugasImgProfil" value="<?=$dataPetugas->petugas_img_profil?>" class="form-control-file">
+                                                <input type="file" id="petugas_img_profil" name="petugas_img_profil" class="form-control" >
+                                                <input type="text" id="petugas_img_profil_old" name="petugas_img_profil_old" class="form-control" value="<?=$dataPetugas->petugas_img_profil?>" readonly>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Level</label>
-                                                <select class="custom-select" id="petugasLevel" name="petugasLevel">
+                                                <select class="custom-select" id="petugasLevel" name="petugas_level">
                                                     <option value="1">Admin</option>
                                                     <option value="2">Penulis</option>
                                                 </select>
