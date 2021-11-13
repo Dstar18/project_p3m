@@ -5,147 +5,132 @@ class Artikel extends CI_Controller{
 
     function __construct(){
         parent::__construct();
-        $this->load->model('Artikel_m');
+        $this->load->model(['Artikel_m', 'Petugas_m', 'ArtikelKategori_m']);
         $this->load->library('form_validation');
     }
 
     // Index
     public function index(){
         $data['dataArtikel'] = $this->Artikel_m->getAll()->result();
-        echo json_encode($data);
-        // $this->load->view('artikel/artikel_data', $data);
+        // echo json_encode($data);
+        $this->load->view('artikel/artikel_data', $data);
     }
 
-    // public function cobaJoin(){
-    //     $data['dataJoin'] = $this->Artikel_m->getAll()->result();
-    //     echo json_encode($data);
-    // }
+    //Add Artikel
+    public function addArtikel(){
+        $post = $this->input->post(null, TRUE);
+        if (!empty($_FILES["artikel_sampul"]["name"])) {
+            $file = $this->uploadImage();
+            $datax['xempty'] = $file;
+            if($file['status'] == true){
+                if($file['name'] != null){
+                    $artikel_sampul = $file['name'];
+                }
+            } else{
+                $response = array(
+                    'status' 	    => 'error-upload',
+                    'quoFile'       => 'tidak Bisa Upload File, Silahkan Di cek Kembali Filenya'
+                );
+            }
+        } else {
+            $artikel_sampul = $post['artikel_sampul_old'];
+        }
+        $parse = array(
+            'artikel_date_insert'   => $post['artikel_date_insert'],
+            'artikel_date_update'   => $post['artikel_date_update'],
+            'artikel_judul'         => $post['artikel_judul'],
+            'artikel_sampul'        => $artikel_sampul,
+            'artikel_content'       => $post['artikel_content'],
+            'artikel_status'        => $post['artikel_status'],
+            'artikel_petugas_id'    => $post['artikel_petugas_id'],
+        );
 
-    // View Tampilan Add Artikel
-    public function viewAddArtikel(){
-        // $data['dataKategori'] = $this->Kategori_m->getAll()->result();
-        $this->load->view('artikel/artikel_add');
+        $id = $this->Artikel_m->addArtikel($parse);
+        if($this->db->affected_rows()>0){
+            for($i=0;$i<count($post['arkatKategoriId']); $i++){
+                $parseArtikelKategori = array(
+                    'artikelID'   => $id,
+                    'kategoriId'   => $post['arkatKategoriId'][$i],
+                );      
+                $this->ArtikelKategori_m->addArtikelKategori($parseArtikelKategori);
+                if($this->db->affected_rows()>0){                    
+                    $response = array(
+                        'status'    => 'success',
+                    );
+                }
+            }
+
+        }
+        echo json_encode($response);
+        // redirect(base_url().'admin/ArtikelKategori/index');
     }
 
-    // Add Artikel
-    // public function addArtikel(){
-    //     // $respon = array();
-    //     $post = $this->input->post(null, TRUE);
-    //     // $data = $this->Artikel_m->addArtikel($post);
-    //     // if($data == TRUE){
-           
-    //     //     header("Location: index");
-            
-    //     // }else{
-    //     //     $respon = array(
-    //     //         'status' => 'gagal'
-    //     //     );
-    //     // }
-        
-    //     // echo json_encode($respon);
-    //     // echo json_encode($post);
+    // Edit Artikel
+    public function editArtikel(){
+        $post = $this->input->post(null, TRUE);
+        if (!empty($_FILES["artikel_sampul"]["name"])) {
+            $file = $this->uploadImage();
+            $datax['xempty'] = $file;
+            if($file['status'] == true){
+                if($file['name'] != null){
+                    $artikel_sampul = $file['name'];
+                }
+            } else{
+                $response = array(
+                    'status' 	    => 'error-upload',
+                    'quoFile'       => 'tidak Bisa Upload File, Silahkan Di cek Kembali Filenya'
+                );
+            }
+        } else {
+            $artikel_sampul = $post['artikel_sampul_old'];
+        }
+        $parse = array(
+            'artikel_date_insert'   => $post['artikel_date_insert'],
+            'artikel_date_update'   => $post['artikel_date_update'],
+            'artikel_judul'         => $post['artikel_judul'],
+            'artikel_sampul'        => $artikel_sampul,
+            'artikel_content'       => $post['artikel_content'],
+            'artikel_status'        => $post['artikel_status'],
+            'artikel_petugas_id'    => $post['artikel_petugas_id'],
+        );
 
-    //     ////////////////////////////
-    //     if(!empty($_FILES["artikelImgName"]["name"])){
-    //         $file = $this->uploadImage();
-    //         if($file['status'] == true){
-    //             if($file['name'] != null){
-    //                 $artikelImgName = $file['name'];
-    //             }
-    //         } else{
-    //             $response = array(
-    //                 'status' => 'error-upload',
-    //                 'quoFile' => 'tidak Bisa Upload File, Silahkan Di cek Kembali Filenya'
-    //             );
-    //         }
-    //     } else {
-    //         // $artikel_imgname = $post['foto_old'];
-    //     }
+        $this->Artikel_m->editArtikel($parse);
+        if($this->db->affected_rows()>0){
+            $response = array(
+                'status'    => 'success',
+            );
+        }
+        echo json_encode($response);
+        redirect(base_url().'admin/ArtikelKategori/index');
+    }
 
-    //     // Create ID //
-    //     $parse = array(
-    //         'artikel_kategori_id' => $post['artikelkategoriId'],
-    //         'artikel_petugas_id' => $post['artikelpetugasId'],
-    //         'artikel_date_insert' => $post['artikelDateInsert'],
-    //         'artikel_judul' => $post['artikelJudul'],
-    //         'artikel_content' => $post['artikelContent'],
-    //         'artikel_status' => $post['artikelStatus'],
-    //         'artikel_date_update' => $post['artikelDateUpdate'],
-    //         'artikel_imgname' => $post['artikelImgName'],
-    //     );
+    // Upload File
+    public function uploadImage(){
+        $config['upload_path']     = FCPATH.'upload/imgsampul/';
+        $config['allowed_types']   = 'gif|jpg|png|jpeg|image';
+        $config['max_size']        = 1000;
+        $config['max_width']       = 1024;
+        $config['max_height']      = 768;
+        $config['file_name']       = 'imgpsampul-'.date('ymd').'-'.substr(md5(rand()),0,10);
 
-    //     // $this->Artikel_m->addArtikel($parse);
-    //     // if($this->db->affected_rows()>0){
-    //     //     $response = array(
-    //     //         'status' => 'success',
-    //     //     );
-    //     // }
-    //     // echo json_encode($response);
-    //     echo json_encode($file);
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if(!empty($_FILES['artikel_sampul']['name']) != null){
+            if($this->upload->do_upload('artikel_sampul')){
+                $file_name = $this->upload->data('file_name');
+                $data['name'] = $file_name;
+                $data['status'] = TRUE;
+                return $data;
+            }else{
+                $data['status'] = FALSE;
+                $data['error'] = "data tidak masuk";
+                return $data;
+            }
+        }else{
+            $data['status'] = TRUE;
+            $data['name'] = null;
+            return $data;
+        }
 
-    // }
-
-    // // Upload file/gambar sampul
-    // public function uploadImage(){
-    //     $config['upload_path']     = './upload/imgsampul/';
-    //     $config['allowed_types']   = 'gif|jpg|png|jpeg';
-    //     $config['max_size']        = 1000;
-    //     // $config['max_width']       = 1024;
-    //     // $config['max_height']      = 768;
-    //     $config['file_name']       = 'sampul-'.date('ymd').'-'.substr(md5(rand()),0,10);
-
-    //     $this->load->library('upload', $config);
-    //     $post = $this->input->post(null, TRUE);
-    //     if(isset($_FILES['artikelImgName']['name']) !=null){
-    //         if($this->upload->do_upload('artikelImgName')){
-    //             $file_name = $this->upload->data('file_name');
-    //             $data['name'] = $file_name;
-    //             $data['status'] = TRUE;
-    //             return $data;
-    //         } else {
-    //             $data['status'] = FALSE;
-    //             $data['error'] = "Data tidak masuk";
-    //             return $data;
-    //         }
-    //     } else{
-    //         $data['status'] = TRUE;
-    //         $data['name'] = null;
-    //         return $data;
-    //     }
-    // }
-
-    // // View Tampilan Edit Artikel
-    // public function viewEditArtikel($id){
-    //     $data['dataArtikel'] = $this->Artikel_m->getById($id)->row();
-    //     // echo json_encode($id);
-    //     $this->load->view('artikel/artikel_edit');
-    // }
-
-    // // Edit Artikel
-    // public function editArtikel(){
-    //     $post = $this->input->post(null, TRUE);
-    //     echo json_encode($post);
-    //     // $data = $this->Artikel_m->editArtikel($post);
-    //     // if($data == TRUE){
-           
-    //     //     header("Location: index");
-    //     //     // $respon = array(
-    //     //     //     'status' => 'succes'
-    //     //     // ); 
-    //     // }else{
-    //     //     $respon = array(
-    //     //         'status' => 'gagal'
-    //     //     );
-    //     // }
-    // }
-
-    // // Delete Artikel
-    // public function deleteArtikel(){
-    //     $this->load->view('artikel/artikel_delete');
-    // }
-
-    // // View Tampilan Lihat Artikel
-    // public function viewLihatArtikel(){
-    //     // $this->load->view('artikel/artikel_add');
-    // }
+    }
 }

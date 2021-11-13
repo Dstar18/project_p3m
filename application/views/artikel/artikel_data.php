@@ -28,10 +28,10 @@
                         <div class="card-header">
                             <h3 class="card-title">ARTIKEL</h3>
                             <div class="card-tools">
-                                <a href="<?= base_url('admin/Artikel/viewAddArtikel')?>">
+                                <!-- <a href="<?= base_url('admin/Artikel/viewAddArtikel')?>">
                                 <button type="button" class="btn btn-block btn-primary">
                                     Tambah Data
-                                </button>
+                                </button> -->
                                 </a>
                                 <!-- <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                                     <i class="fas fa-times"></i>
@@ -47,10 +47,9 @@
                                         <th>No</th>
                                         <th>Tanggal</th>
                                         <th>Artikel</th>
-                                        <th>Author</th>
-                                        <th>Kategori</th>
+                                        <th>Petugas</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <!-- <th>Action</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -62,12 +61,15 @@
                                         <td><?=$i++?></td>
                                         <td><?=$rowArtikel->artikel_date_update?></td>
                                         <td><?=$rowArtikel->artikel_judul?></td>
-                                        <td><?=$rowArtikel->pengguna_nama?></td>
-                                        <td><?=$rowArtikel->kategori_nama?></td>
-                                        <td><?=$rowArtikel->artikel_status?></td>
+                                        <td><?=$rowArtikel->petugas_nama?></td>
+                                        <?php if($rowArtikel->artikel_status == 1){ ?>
+                                                <td class=" ">Publish</td>
+                                            <?php }else if($rowArtikel->artikel_status == 2){ ?>
+                                                <td class=" ">Draft</td>
+                                            <?php } ?>
                                         
                                         <td>
-                                            <a href="<?= base_url('admin/Artikel/viewLihatArtikel')?>">
+                                            <!-- <a href="<?= base_url('admin/Artikel/viewLihatArtikel')?>">
                                                 <button class="btn btn-sm btn-success" id="btn-lihat">Lihat</button>
                                             </a>
                                             <a href="<?= base_url('admin/Artikel/viewEditArtikel/'.$rowArtikel->artikel_id)?>">
@@ -75,7 +77,7 @@
                                             </a>
                                             <a href="<?= base_url('admin/Artikel/deleteArtikel')?>">
                                                 <button class="btn btn-sm btn-danger" id="btn-delete">Delete</button>
-                                            </a>
+                                            </a> -->
                                         </td>
                                     </tr>
                                     <?php }?>

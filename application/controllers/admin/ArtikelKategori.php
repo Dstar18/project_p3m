@@ -17,32 +17,27 @@ class ArtikelKategori extends CI_Controller{
     }
 
     // View Tampilan Add Artikel
-    public function viewAddArtikelKategori($id){
-        $data['dataArtikel'] = $this->Artikel_m->getAll()->result();
+    public function viewAddArtikelKategori(){
+        $data['dataArtikelKategori'] = $this->ArtikelKategori_m->getAll()->result();
         $data['dataKategori'] = $this->Kategori_m->getAll()->result();
-        $data['dataPetugas'] = $this->Petugas_m->getAll()->result();
-        $data['dataArtikelKategori'] = $this->ArtikelKategori_m->getArkatID($id)->result();
         // echo json_encode($data);
         $this->load->view('ArtikelKategori/artikelkategori_add', $data);
     }
+
     //Add Artikel
-    public function addArtikelKategori(){
-        $respon = array();
-        $post = $this->input->post(null, TRUE);
-        $data = $this->ArtikelKategori_m->addArtikelKategori($post);
-        if($data == TRUE){
-           
-            header("Location: index");
-            // $respon = array(
-            //     'status' => 'succes'
-            // ); 
-        }else{
-            $respon = array(
-                'status' => 'gagal'
-            );
-        }
-        
-        echo json_encode($respon);
-        // echo json_encode($post);
+    public function AddArtikelKategori(){
+        // $post = $this->input->post(null, TRUE);
+        // $params = array();
+        // $params ['']
     }
+
+    // View Tampilan Edit Artikel
+    public function viewEditArtikelKategori(){
+        $data['dataArtikelKategori'] = $this->ArtikelKategori_m->getAll()->result();
+        $data['dataKategori'] = $this->Kategori_m->getAll()->result();
+        // echo json_encode($data);
+        $this->load->view('ArtikelKategori/artikelkategori_edit', $data);
+    }
+
+    
 }

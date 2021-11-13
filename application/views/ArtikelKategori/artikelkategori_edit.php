@@ -38,7 +38,7 @@
                                     <input type="hidden" name="artikel_date_update" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control">
 
                                     <!-- ID Penulis/Admin -->
-                                    <input type="hidden" name="artikel_petugas_id" class="form-control" value="<?=$this->fungsi->petugas_login()->petugas_id?>" readonly>
+                                    <input type="text" name="artikel_petugas_id" class="form-control" value="<?=$this->fungsi->petugas_login()->petugas_id?>" readonly>
                                     
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="artikel_judul" placeholder="Judul Artikel" required>
