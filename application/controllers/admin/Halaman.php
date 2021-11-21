@@ -16,7 +16,7 @@ class Halaman extends CI_Controller{
         $this->load->view('halaman/halaman_data', $data);  
     }
 
-    //View Tampilan Edit Kategori
+    //View Tampilan Edit Halaman
     public function viewEditHalaman($id){
         $data['dataHalaman'] = $this->Halaman_m->getById($id)->row();
         // echo json_encode($data);
@@ -40,5 +40,11 @@ class Halaman extends CI_Controller{
                 'status' => 'gagal'
             );
         }
+    }
+
+    //////////////Controller Front-End////////////////////////
+    public function indexWeb(){
+        $data['dataHalaman'] = $this->Halaman_m->getAll()->result();
+        $this->load->view('website/halaman/visimisi', $data);  
     }
 }

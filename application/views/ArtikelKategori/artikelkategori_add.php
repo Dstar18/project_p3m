@@ -61,7 +61,7 @@
                                         <label>Kategori</label>
                                         <?php foreach($dataKategori as $rowKategori){?>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="arkatKategoriId[]" id="arkatKategoriId" value="<?=$rowKategori->kategori_id?>">
+                                                <input class="form-check-input" type="checkbox" name="arkatKategoriId[]" id="arkatKategoriId" value="<?=$rowKategori->kategori_id?>" required>
                                                 <label class="form-check-label"><?=$rowKategori->kategori_nama?></label>
                                             </div>
                                         <?php } ?>

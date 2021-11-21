@@ -42,40 +42,39 @@
                                     </div>
                                     <!-- /Navbar Content -->
                                     <!-- Page Content -->
-                                    
-                                    
-                                        <div class="card-body">
-                                            <div class="form-group">
-                                                <label for="pengaturanNama">Nama Website</label>
-                                                <input type="text" id="pengaturanNama" name="pengaturanNama" value="<?=$rowPengaturan->pengaturan_nama?>" class="form-control" readonly>
-                                            </div>
 
-                                            <div class="form-group">
-                                                <label for="pengaturanLogo">Logo</label>
-                                                <input type="text" id="pengaturanLogo" name="pengaturanLogo" value="<?=$rowPengaturan->pengaturan_logo?>" class="form-control" readonly>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="pengaturanTelp">No Telefon</label>
-                                                <input type="number" id="pengaturanTelp" name="pengaturanTelp" value="<?=$rowPengaturan->pengaturan_telp?>" class="form-control" readonly>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="pengaturanFb">Link Facebook</label>
-                                                <input type="text" id="pengaturanFb" name="pengaturanFb" value="<?=$rowPengaturan->pengaturan_fb?>" class="form-control" readonly>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="pengaturanIg">Link Instagram</label>
-                                                <input type="text" id="pengaturanIg" name="pengaturanIg" value="<?=$rowPengaturan->pengaturan_ig?>" class="form-control" readonly>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="pengaturanYtb">Link Youtube</label>
-                                                <input type="text" id="pengaturanYtb" name="pengaturanYtb" value="<?=$rowPengaturan->pengaturan_ytb?>" class="form-control" readonly>
-                                            </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="pengaturanLogo">Logo</label><br>
+                                            <img src="<?= base_url()?>upload/imglogo/<?=$rowPengaturan->pengaturan_logo?>" width="200" height="175">
+                                            <input type="text" id="pengaturanLogo" name="pengaturanLogo" value="<?=$rowPengaturan->pengaturan_logo?>" class="form-control" readonly>
                                         </div>
-                                    
+                                        
+                                        <div class="form-group">
+                                            <label for="pengaturanNama">Nama Website</label>
+                                            <input type="text" id="pengaturanNama" name="pengaturanNama" value="<?=$rowPengaturan->pengaturan_nama?>" class="form-control" readonly>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="pengaturanTelp">No Telefon</label>
+                                            <input type="number" id="pengaturanTelp" name="pengaturanTelp" value="<?=$rowPengaturan->pengaturan_telp?>" class="form-control" readonly>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="pengaturanFb">Link Facebook</label>
+                                            <input type="text" id="pengaturanFb" name="pengaturanFb" value="<?=$rowPengaturan->pengaturan_fb?>" class="form-control" readonly>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="pengaturanIg">Link Instagram</label>
+                                            <input type="text" id="pengaturanIg" name="pengaturanIg" value="<?=$rowPengaturan->pengaturan_ig?>" class="form-control" readonly>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="pengaturanYtb">Link Youtube</label>
+                                            <input type="text" id="pengaturanYtb" name="pengaturanYtb" value="<?=$rowPengaturan->pengaturan_ytb?>" class="form-control" readonly>
+                                        </div>
+                                    </div>  
                                 </div>
                             </div>
                         </div>

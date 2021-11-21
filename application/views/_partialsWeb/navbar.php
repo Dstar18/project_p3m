@@ -12,7 +12,7 @@
 
         <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a href="<?= base_url('Website/visimisi')?>">Visi & Misi</a></li>
+            <li><a href="<?= base_url('admin/Halaman/indexWeb')?>">Visi & Misi</a></li>
             <li><a href="#">Struktur Organisasi</a></li>
           </ul>
         </li>

@@ -5,8 +5,9 @@ class Pengaturan extends CI_Controller{
 
     function __construct(){
         parent::__construct();
+        $this->load->helper(array('form', 'url'));
         $this->load->model('Pengaturan_m');
-        $this->load->library('form_validation');
+        $this->load->library('form_validation','fungsi');
     }
 
     //Index
@@ -67,9 +68,9 @@ class Pengaturan extends CI_Controller{
     public function uploadImage(){
         $config['upload_path']     = FCPATH.'upload/imglogo/';
         $config['allowed_types']   = 'gif|jpg|png|jpeg|image';
-        $config['max_size']        = 2048;
-        $config['max_width']       = 1024;
-        $config['max_height']      = 768;
+        $config['max_size']        = 5048;
+        $config['max_width']       = 5000;
+        $config['max_height']      = 5000;
         $config['file_name']       = 'logo-'.date('ymd').'-'.substr(md5(rand()),0,10);
 
         $this->load->library('upload', $config);

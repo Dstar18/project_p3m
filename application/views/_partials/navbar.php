@@ -12,7 +12,7 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown open" style="padding-left: 15px;">
             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-              <!-- <img src="<?= base_url()?>assets/images/admin.jpg" class="img-circle elevation-2" alt=""> -->
+              <!-- <img src="<?= base_url()?>upload/imgpetugas/<?=$this->fungsi->petugas_login()->petugas_img_profil?>" class="img-circle elevation-2" alt=""> -->
               <?=$this->fungsi->petugas_login()->petugas_nama?>
             </a>
             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">

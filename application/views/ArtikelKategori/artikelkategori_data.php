@@ -27,16 +27,6 @@
                         <!-- Navbar Content -->
                         <div class="card-header">
                             <h3 class="card-title">Data Artikel</h3>
-                            <div class="card-tools">
-                                <!-- <a href="<?= base_url('admin/ArtikelKategori/viewAddArtikelKategori')?>">
-                                    <button type="button" class="btn btn-block btn-primary">
-                                        Tambah Data
-                                    </button>
-                                </a> -->
-                                <!-- <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                                    <i class="fas fa-times"></i>
-                                </button> -->
-                            </div>
                         </div>
                         <!-- /Navbar Content -->
                         <!-- Page Content -->
@@ -46,11 +36,10 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Date Insert</th>
-                                        <th>Date Update</th>
                                         <th>Judul Artikel</th>
                                         <th>Nama Penulis</th>
-                                        <th>Kategori</th>
                                         <th>Status</th>
+                                        <th>Kategori</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -58,28 +47,35 @@
 
                                 <?php
                                     $i = 1;
-                                    foreach($dataArtikelKategori as $rowdataArtikelKategori){?>
+                                    foreach($dataArtikel as $rowArtikel){?>
                                     <tr>
                                         <td><?=$i++?></td>
-                                        <td><?=$rowdataArtikelKategori->artikel_date_insert?></td>
-                                        <td><?=$rowdataArtikelKategori->artikel_date_update?></td>
-                                        <td><?=$rowdataArtikelKategori->artikel_judul?></td>
-                                        <td><?=$rowdataArtikelKategori->petugas_nama?></td>
-                                        <td><?=$rowdataArtikelKategori->kategori_nama?></td>
-                                        <?php if($rowdataArtikelKategori->artikel_status == 1){ ?>
+                                        <td><?=$rowArtikel->artikel_date_insert?></td>
+                                        <td><?=$rowArtikel->artikel_judul?></td>
+                                        <?php
+                                            foreach($dataPetugas as $rowPetugas){
+                                                if($rowArtikel->artikel_petugas_id == $rowPetugas->petugas_id){?>
+                                                    <td><?=$rowPetugas->petugas_nama?></td>
+                                        <?php  } } ?>
+                                        <?php if($rowArtikel->artikel_status == 1){ ?>
                                             <td class=" ">Publish</td>
-                                        <?php }else if($rowdataArtikelKategori->artikel_status == 2){ ?>
+                                        <?php }else if($rowArtikel->artikel_status == 2){ ?>
                                             <td class=" ">Draft</td>
                                         <?php } ?>
                                         
                                         <td>
-                                            <a href="<?= base_url('admin/Artikel/viewLihatArtikel')?>">
+                                            <?php
+                                                foreach($dataArtikelKategori as $rowArtikelKategori){
+                                                    if($rowArtikel->artikel_id == $rowArtikelKategori->arkat_artikel_id){?>
+                                                            <li><?=$rowArtikelKategori->kategori_nama?></li>
+                                            <?php } } ?>
+                                        </td>
+                                        <td>
+                                            <a href="<?= base_url('admin/ArtikelKategori/viewViewArtikelKategori/'.$rowArtikel->artikel_id)?>">
                                                 <button class="btn btn-sm btn-success" id="btn-lihat">Lihat</button>
                                             </a>
-                                            <a href="<?= base_url('admin/Artikel/viewEditArtikel/')?>">
-                                                <button class="btn btn-sm btn-warning" id="btn-edit">Edit</button>
-                                            </a>
-                                            <a href="<?= base_url('admin/Artikel/deleteArtikel')?>">
+                                            
+                                            <a href="<?= base_url('admin/Artikel/deleteArtikel/'.$rowArtikel->artikel_id)?>">
                                                 <button class="btn btn-sm btn-danger" id="btn-delete">Delete</button>
                                             </a>
                                         </td>

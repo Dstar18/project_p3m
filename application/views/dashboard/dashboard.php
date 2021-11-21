@@ -46,7 +46,7 @@
                                     <div class="small-box bg-info">
                                         <?php if($this->fungsi->petugas_login()->petugas_level == 1 || $this->fungsi->petugas_login()->petugas_level == 2) {?>
                                             <div class="inner">
-                                                <h3><?=$dataArtikelKategori->total?></h3>
+                                                <h3><?=$dataArtikel->total?></h3>
                                                 <p>Data Artikel</p>
                                             </div>
                                             <a href="<?= base_url('admin/ArtikelKategori')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>

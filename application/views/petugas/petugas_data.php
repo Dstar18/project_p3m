@@ -65,7 +65,9 @@
                                             <td><?=$rowPetugas->petugas_email?></td>
                                             <td><?=$rowPetugas->petugas_nohp?></td>
                                             <td><?=$rowPetugas->petugas_password?></td>
-                                            <td><?=$rowPetugas->petugas_img_profil?></td>
+                                            <td>
+                                                <img src="<?= base_url()?>upload/imgpetugas/<?=$rowPetugas->petugas_img_profil?>" width="50" height="45">
+                                            </td>
                                             <?php if($rowPetugas->petugas_level == 1){ ?>
                                                 <td class=" ">Admin</td>
                                             <?php }else if($rowPetugas->petugas_level == 2){ ?>

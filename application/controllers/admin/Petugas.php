@@ -126,9 +126,9 @@ class Petugas extends CI_Controller{
     public function uploadImage(){
         $config['upload_path']     = FCPATH.'upload/imgpetugas/';
         $config['allowed_types']   = 'gif|jpg|png|jpeg|image';
-        $config['max_size']        = 1000;
-        $config['max_width']       = 1024;
-        $config['max_height']      = 768;
+        $config['max_size']        = 5000;
+        $config['max_width']       = 5000;
+        $config['max_height']      = 5000;
         $config['file_name']       = 'imgprofil-'.date('ymd').'-'.substr(md5(rand()),0,10);
 
         $this->load->library('upload', $config);

@@ -12,6 +12,8 @@ class ArtikelKategori extends CI_Controller{
     // Index
     public function index(){
         $data['dataArtikelKategori'] = $this->ArtikelKategori_m->getAll()->result();
+        $data['dataArtikel'] = $this->Artikel_m->getAll()->result();
+        $data['dataPetugas'] = $this->Petugas_m->getAll()->result();
         // echo json_encode($data);
         $this->load->view('ArtikelKategori/artikelkategori_data', $data);
     }
@@ -24,18 +26,20 @@ class ArtikelKategori extends CI_Controller{
         $this->load->view('ArtikelKategori/artikelkategori_add', $data);
     }
 
-    //Add Artikel
-    public function AddArtikelKategori(){
-        // $post = $this->input->post(null, TRUE);
-        // $params = array();
-        // $params ['']
+    // View Tampilan View Artikel
+    public function viewViewArtikelKategori($id){
+        $data['dataArtikelKategori'] = $this->ArtikelKategori_m->getById($id)->row();
+        $data['dataArtikel'] = $this->Artikel_m->getById($id)->row();
+        // $data['dataKategori'] = $this->Kategori_m->getAll()->result();
+        $data['dataKategori'] = $this->Kategori_m->getById($id)->row();
+        $this->load->view('ArtikelKategori/artikelkategori_view', $data);
     }
 
     // View Tampilan Edit Artikel
-    public function viewEditArtikelKategori(){
-        $data['dataArtikelKategori'] = $this->ArtikelKategori_m->getAll()->result();
-        $data['dataKategori'] = $this->Kategori_m->getAll()->result();
-        // echo json_encode($data);
+    public function viewEditArtikelKategori($id){
+        $data['dataArtikelKategori'] = $this->ArtikelKategori_m->getById($id)->row();
+        $data['dataArtikel'] = $this->Artikel_m->getById($id)->row();
+        $data['dataKategori'] = $this->Kategori_m->getById($id)->row();
         $this->load->view('ArtikelKategori/artikelkategori_edit', $data);
     }
 

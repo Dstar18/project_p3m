@@ -15,6 +15,14 @@ class Artikel_m extends CI_Model{
         $this->db->select('*');
         $this->db->from('tb_artikel');
         $this->db->where('artikel_id', $id);
+        $this->db->join('tb_petugas','tb_petugas.petugas_id = tb_artikel.artikel_petugas_id');
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function getCountArtikel(){
+        $this->db->select('COUNT(artikel_id) as total');
+        $this->db->from('tb_artikel');
         $query = $this->db->get();
         return $query;
     }

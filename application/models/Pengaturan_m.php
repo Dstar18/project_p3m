@@ -2,6 +2,15 @@
 
 class Pengaturan_m extends CI_Model{
 
+    public function get($id = null){
+        $this->db->from('tb_pengaturan');
+        if($id != null){
+            $this->db->where('pengaturan_id', $id);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function getAll(){
         $this->db->select('*');
         $this->db->from('tb_pengaturan');

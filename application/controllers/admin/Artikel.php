@@ -62,7 +62,7 @@ class Artikel extends CI_Controller{
 
         }
         echo json_encode($response);
-        // redirect(base_url().'admin/ArtikelKategori/index');
+        redirect(base_url().'admin/ArtikelKategori');
     }
 
     // Edit Artikel
@@ -85,6 +85,7 @@ class Artikel extends CI_Controller{
             $artikel_sampul = $post['artikel_sampul_old'];
         }
         $parse = array(
+            'artikel_id'            => $post['artikel_id'],
             'artikel_date_insert'   => $post['artikel_date_insert'],
             'artikel_date_update'   => $post['artikel_date_update'],
             'artikel_judul'         => $post['artikel_judul'],
@@ -93,24 +94,33 @@ class Artikel extends CI_Controller{
             'artikel_status'        => $post['artikel_status'],
             'artikel_petugas_id'    => $post['artikel_petugas_id'],
         );
-
-        $this->Artikel_m->editArtikel($parse);
+        
+        $id = $this->Artikel_m->editArtikel($parse);
         if($this->db->affected_rows()>0){
-            $response = array(
-                'status'    => 'success',
-            );
+            for($i=0;$i<count($post['arkatKategoriId']); $i++){
+                $parseArtikelKategori = array(
+                    'artikelID'   => $id,
+                    'kategoriId'   => $post['arkatKategoriId'][$i],
+                );
+                $this->ArtikelKategori_m->editArtikelKategori($parseArtikelKategori);
+                if($this->db->affected_rows()>0){                    
+                    $response = array(
+                        'status'    => 'success',
+                    );
+                }
+            }
         }
         echo json_encode($response);
-        redirect(base_url().'admin/ArtikelKategori/index');
+        redirect(base_url().'admin/ArtikelKategori');
     }
 
     // Upload File
     public function uploadImage(){
         $config['upload_path']     = FCPATH.'upload/imgsampul/';
         $config['allowed_types']   = 'gif|jpg|png|jpeg|image';
-        $config['max_size']        = 1000;
-        $config['max_width']       = 1024;
-        $config['max_height']      = 768;
+        $config['max_size']        = 5000;
+        $config['max_width']       = 5000;
+        $config['max_height']      = 5000;
         $config['file_name']       = 'imgpsampul-'.date('ymd').'-'.substr(md5(rand()),0,10);
 
         $this->load->library('upload', $config);
@@ -132,5 +142,12 @@ class Artikel extends CI_Controller{
             return $data;
         }
 
+    }
+
+    // Delete Artikel
+    public function deleteArtikel($id){
+        $this->Artikel_m->deleteArtikel($id);
+        
+        redirect(base_url().'admin/ArtikelKategori');      
     }
 }

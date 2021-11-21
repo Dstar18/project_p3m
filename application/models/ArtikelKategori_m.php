@@ -12,10 +12,14 @@ class ArtikelKategori_m extends CI_Model{
         return $query;
     }
 
+
+
     public function getById($id){
         $this->db->select('*');
         $this->db->from('tb_artikelkategori');
         $this->db->where('arkat_id', $id);
+        $this->db->join('tb_artikel','tb_artikel.artikel_id = tb_artikelkategori.arkat_artikel_id');
+        $this->db->join('tb_kategori','tb_kategori.kategori_id = tb_artikelkategori.arkat_kategori_id');
         $query = $this->db->get();
         return $query;
     }
@@ -23,16 +27,6 @@ class ArtikelKategori_m extends CI_Model{
     public function getCountArtikelKategori(){
         $this->db->select('COUNT(arkat_id) as total');
         $this->db->from('tb_artikelkategori');
-        $query = $this->db->get();
-        return $query;
-    }
-
-    public function getArkatID($id){
-        $this->db->from('tb_artikelkategori');
-        $this->db->where('arkat_id', $id);
-        $this->db->join('tb_artikel','tb_artikel.artikel_id = tb_artikelkategori.arkat_artikel_id');
-        $this->db->join('tb_kategori','tb_kategori.kategori_id = tb_artikelkategori.arkat_kategori_id');
-        $this->db->join('tb_petugas','tb_petugas.petugas_id = tb_artikelkategori.arkat_petugas_id');
         $query = $this->db->get();
         return $query;
     }
@@ -47,10 +41,9 @@ class ArtikelKategori_m extends CI_Model{
     }
 
     public function editArtikelKategori($post){
-        $parse = array();
         $parse = array(
-            'arkat_artikel_id'  => $post['arkatArtikelID'],
-            'arkat_kategori_id' => $post['arkatKategoriID'],
+            'arkat_artikel_id'  => $post['artikelID'],
+            'arkat_kategori_id' => $post['kategoriId'], 
         );
         $this->db->where('arkat_id', $post['arkatID']);
         $query = $this->db->update('tb_artikelkategori', $parse);

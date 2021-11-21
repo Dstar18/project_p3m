@@ -11,6 +11,13 @@ class Petugas_m extends CI_Model{
         return $query;
     }
 
+    public function getAllPetugas(){
+        $this->db->select('*');
+        $this->db->from('tb_petugas');
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function getAll(){
         $this->db->select('*');
         $this->db->from('tb_petugas');

@@ -3,8 +3,8 @@
     
     <!-- Brand Logo -->
     <a href="<?= base_url('admin/Dashboard')?>" class="brand-link">
-      <img src="<?= base_url()?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">LPPM ITDA</span>
+      <img src="<?= base_url()?>upload/imglogo/<?=$this->fungsi->pengaturan_web()->pengaturan_logo?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light"><?=$this->fungsi->pengaturan_web()->pengaturan_nama?></span>
     </a>
 
     <!-- Sidebar -->
@@ -13,8 +13,7 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?= base_url()?>assets/images/admin.jpg" class="img-circle elevation-2" alt="User Image">
-          <!-- <img src="<?= base_url('./upload/imgpetugas/'.$dataPetugas->petugas_img_profil)?>" class="img-circle elevation-2" alt="User Image"> -->
+            <img src="<?= base_url()?>upload/imgpetugas/<?=$this->fungsi->petugas_login()->petugas_img_profil?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?=$this->fungsi->petugas_login()->petugas_nama?></a>
