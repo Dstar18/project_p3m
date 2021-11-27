@@ -28,7 +28,7 @@
                        <div class="row">
                            <div class="col-md-12 col-sm-12 col-xs-12">
                                <div class="section-headline text-center">
-                                   <h2>Jurnal P3M</h2>
+                                   <h2><?=$dataArtikel->artikel_judul?></h2>
                                 </div>
                             </div>
                         </div>
@@ -41,8 +41,7 @@
                                             <img src="<?= base_url()?>assetsWeb/img/about/1.jpg" alt="">
                                         </a> -->
                                         <p>
-                                            Redug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure aspernatur sit adipisci quaerat unde at nequeRedug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure
-                                        </p>
+                                        <?=$dataArtikel->artikel_content?>                                        </p>
                                         <ul>
                                             <li>
                                                 <i class="bi bi-check"></i> Interior design Package

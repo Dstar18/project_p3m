@@ -38,6 +38,7 @@
                                     <input type="text" name="artikel_date_update" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control" readonly>
 
                                     <!-- ID Penulis/Admin -->
+                                    <input type="text" name="artikel_id" class="form-control" value="<?=$dataArtikel->artikel_id?>" readonly>
                                     <input type="text" name="artikel_petugas_id" class="form-control" value="<?=$this->fungsi->petugas_login()->petugas_id?>" readonly>
                                     
                                     <div class="form-group">
@@ -55,17 +56,31 @@
                                     <div class="form-group">
                                         <label for="artikel_sampul">Gambar Sampul</label>
                                         <input type="file" id="artikel_sampul" name="artikel_sampul" class="form-control" >
-                                        <input type="text" id="artikel_sampul_old" name="artikel_sampul" class="form-control" value="<?=$dataArtikel->artikel_sampul?>" readonly>
+                                        <input type="text" id="artikel_sampul_old" name="artikel_sampul_old" class="form-control" value="<?=$dataArtikel->artikel_sampul?>" readonly>
                                     </div>
-
+                                    <?php
+                                        $z = array();
+                                        foreach($dataArtikelKategori as $rowAK){
+                                            $z[] = $rowAK->arkat_kategori_id;
+                                        }
+                                    
+                                    ?>
                                     <div class="form-group">
                                         <label>Kategori</label>
-                                        <!-- <?=$dataKategori->kategori_nama?> -->
-                                        <?php foreach($dataArtikelKategori as $rowdataArtikelKategori){?>
+                                        <?php foreach($dataKategori as $rowKategori){?>
+                                            <?php 
+                                                if(in_array($rowKategori->kategori_id, $z)){    
+                                            ?>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="arkatKategoriId[]" id="arkatKategoriId" value="<?=$dataArtikelKategori->kategori_id?>">
-                                                <label class="form-check-label"><?=$dataArtikelKategori->kategori_nama?></label>
+                                                <input class="form-check-input" type="checkbox" name="arkatKategoriId[]" id="arkatKategoriId" checked value="<?=$rowKategori->kategori_id?>">
+                                                <label class="form-check-label"><?=$rowKategori->kategori_nama?></label>
                                             </div>
+                                            <?php }else{ ?>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="arkatKategoriId[]" id="arkatKategoriId" value="<?=$rowKategori->kategori_id?>">
+                                                <label class="form-check-label"><?=$rowKategori->kategori_nama?></label>
+                                            </div>
+                                            <?php } ?>
                                         <?php } ?>
                                     </div>
 

@@ -5,6 +5,7 @@ class Kategori extends CI_Controller{
 
     function __construct(){
         parent::__construct();
+        check_not_petugas();
         $this->load->model('Kategori_m');
         $this->load->library('form_validation');
     }

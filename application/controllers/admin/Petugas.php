@@ -5,6 +5,8 @@ class Petugas extends CI_Controller{
 
     function __construct(){
         parent::__construct();
+        check_not_petugas();
+        check_petugas();
         $this->load->helper(array('form', 'url'));
         $this->load->model('Petugas_m');
         $this->load->library('form_validation');

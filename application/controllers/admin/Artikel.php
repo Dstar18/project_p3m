@@ -5,6 +5,8 @@ class Artikel extends CI_Controller{
 
     function __construct(){
         parent::__construct();
+        check_not_petugas();
+        
         $this->load->model(['Artikel_m', 'Petugas_m', 'ArtikelKategori_m']);
         $this->load->library('form_validation');
     }
@@ -94,15 +96,16 @@ class Artikel extends CI_Controller{
             'artikel_status'        => $post['artikel_status'],
             'artikel_petugas_id'    => $post['artikel_petugas_id'],
         );
-        
-        $id = $this->Artikel_m->editArtikel($parse);
+        $id = $post['artikel_id'];
+        $this->Artikel_m->editArtikel($parse);
         if($this->db->affected_rows()>0){
+            $this->ArtikelKategori_m->deleteArtikelKategori($id);
             for($i=0;$i<count($post['arkatKategoriId']); $i++){
                 $parseArtikelKategori = array(
                     'artikelID'   => $id,
                     'kategoriId'   => $post['arkatKategoriId'][$i],
-                );
-                $this->ArtikelKategori_m->editArtikelKategori($parseArtikelKategori);
+                );      
+                $this->ArtikelKategori_m->addArtikelKategori($parseArtikelKategori);
                 if($this->db->affected_rows()>0){                    
                     $response = array(
                         'status'    => 'success',
@@ -110,7 +113,7 @@ class Artikel extends CI_Controller{
                 }
             }
         }
-        echo json_encode($response);
+        // echo json_encode($response);
         redirect(base_url().'admin/ArtikelKategori');
     }
 

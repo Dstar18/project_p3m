@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
     <head>
         <?php $this->load->view('_partials/head.php');?>
@@ -107,4 +107,4 @@
         <!-- /JS -->
         
     </body>
-</html>
+</html> -->

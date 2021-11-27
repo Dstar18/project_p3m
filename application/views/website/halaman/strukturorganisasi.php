@@ -15,8 +15,12 @@
             <main id="main">
 
                 <!-- carouselBlog -->
-                    <?php $this->load->view('_partialsWeb/carouselBlog.php');?>
+                <?php $this->load->view('_partialsWeb/carouselBlog.php');?>
                 <!-- /carouselBlog -->
+
+                <!-- BreadcrumbWeb -->
+                <?php $this->load->view('_partialsWeb/breadcrumbWeb.php');?>
+                <!-- BreadcrumbWeb -->
 
                <!-- ======= Page Content ======= -->
                <div id="about" class="about-area area-padding">
@@ -24,7 +28,7 @@
                        <div class="row">
                            <div class="col-md-12 col-sm-12 col-xs-12">
                                <div class="section-headline text-center">
-                                   <h2>Jurnal P3M</h2>
+                                   <h2><?=$dataHalaman->halaman_judul?></h2>
                                 </div>
                             </div>
                         </div>
@@ -32,30 +36,16 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="well-middle">
                                     <div class="single-well">
-                                        <h4 class="sec-head">project Maintenance</h4>
+                                        <!-- <h4 class="sec-head">project Maintenance</h4> -->
                                         <!-- <a href="#">
                                             <img src="<?= base_url()?>assetsWeb/img/about/1.jpg" alt="">
                                         </a> -->
+                                        <center>
+                                            <img src="<?= base_url()?>upload/imgsampul/1struktur.png" alt="">
+                                        </center>
                                         <p>
-                                            Redug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure aspernatur sit adipisci quaerat unde at nequeRedug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure
+                                            <?=$dataHalaman->halaman_content?> 
                                         </p>
-                                        <ul>
-                                            <li>
-                                                <i class="bi bi-check"></i> Interior design Package
-                                            </li>
-                                            <li>
-                                                <i class="bi bi-check"></i> Building House
-                                            </li>
-                                            <li>
-                                                <i class="bi bi-check"></i> Reparing of Residentail Roof
-                                            </li>
-                                            <li>
-                                                <i class="bi bi-check"></i> Renovaion of Commercial Office
-                                            </li>
-                                            <li>
-                                                <i class="bi bi-check"></i> Make Quality Products
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -66,6 +56,10 @@
             
             </main>
             <!-- /Main Content -->
+
+            <!-- BreadcrumbWeb -->
+            <?php $this->load->view('_partialsWeb/space.php');?>
+            <!-- BreadcrumbWeb -->
 
             <!-- Footer -->
             <?php $this->load->view('_partialsWeb/footer.php');?>

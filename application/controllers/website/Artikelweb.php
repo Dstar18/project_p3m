@@ -9,9 +9,9 @@ class Artikelweb extends CI_Controller {
     }
 
     // Menampilkan dashboard blog
-	public function blog(){
-		$this->load->view('website/halaman/blog/blog');
-	}
+	// public function blog(){
+	// 	$this->load->view('website/halaman/blog/blog');
+	// }
 
     // Menampilkan blog-detail
 	public function blog_detail(){

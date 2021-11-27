@@ -11,6 +11,30 @@ class Artikel_m extends CI_Model{
         return $query;
     }
 
+    public function getAllPublish(){
+        $this->db->select('*');
+        $this->db->from('tb_artikel');
+        $this->db->where('artikel_status', '1');
+        $this->db->order_by('artikel_id', 'DESC');
+        $this->db->join('tb_petugas','tb_petugas.petugas_id = tb_artikel.artikel_petugas_id');
+        $query = $this->db->get();
+        return $query;
+    }
+
+    
+    public function getAllLimit(){
+        $this->db->select('*');
+        $this->db->from('tb_artikel');
+        $this->db->where('artikel_status', '1');
+        $this->db->order_by('artikel_id', 'DESC');
+        $this->db->limit(3);
+        
+        $this->db->join('tb_petugas','tb_petugas.petugas_id = tb_artikel.artikel_petugas_id');
+        
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function getById($id){
         $this->db->select('*');
         $this->db->from('tb_artikel');

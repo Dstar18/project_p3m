@@ -5,6 +5,7 @@ class Auth extends CI_Controller{
     
     // View Tampilan login
     public function login(){
+        check_already_login_petugas();
         $this->load->view('login/login');
     }
 

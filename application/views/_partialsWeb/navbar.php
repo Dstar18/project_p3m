@@ -1,25 +1,25 @@
 <header id="header" class="fixed-top d-flex align-items-center">
   <div class="container d-flex justify-content-between">
     <div class="logo">
-      <h1><a href="<?= base_url('')?>"><span>LPPM</span>ITDA</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <h1><a href="<?= base_url('')?>"><img src="<?= base_url()?>upload/imglogo/<?=$this->fungsi->pengaturan_web()->pengaturan_logo?>" alt="" class="img-fluid"></a> 
+      <!-- <h1><a href="<?= base_url('')?>"><span>LPPM</span>ITDA</a></h1> -->
+      <a href="<?= base_url('')?>"><?=$this->fungsi->pengaturan_web()->pengaturan_nama?></a></h1>
     </div>
-    
+   
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="nav-link" href="<?= base_url('')?>">Beranda</a></li>
 
         <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a href="<?= base_url('admin/Halaman/indexWeb')?>">Visi & Misi</a></li>
-            <li><a href="#">Struktur Organisasi</a></li>
+            <li><a href="<?= base_url('admin/Halaman/WebVisiMisi')?>">Visi & Misi</a></li>
+            <li><a href="<?= base_url('admin/Halaman/WebStrukturOrganisasi')?>">Struktur Organisasi</a></li>
           </ul>
         </li>
 
         <li><a class="nav-link scrollto" href="#">Pengumuman</a></li>
 
-        <li><a class="nav-link scrollto" href="<?= base_url('website/Artikelweb/blog')?>">Blog</a></li>
+        <li><a class="nav-link scrollto" href="<?= base_url('admin/ArtikelKategori/blog')?>">Blog</a></li>
 
         <li class="dropdown"><a href="#"><span>Publikasi</span> <i class="bi bi-chevron-down"></i></a>
           <ul>

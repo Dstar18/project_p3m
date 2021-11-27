@@ -5,6 +5,8 @@ class Halaman extends CI_Controller{
 
     function __construct(){
         parent::__construct();
+        check_not_petugas();
+        check_petugas();
         $this->load->model('Halaman_m');
         $this->load->library('form_validation');
     }
@@ -43,8 +45,12 @@ class Halaman extends CI_Controller{
     }
 
     //////////////Controller Front-End////////////////////////
-    public function indexWeb(){
-        $data['dataHalaman'] = $this->Halaman_m->getAll()->result();
+    public function WebVisiMisi(){
+        $data['dataHalaman'] = $this->Halaman_m->getById('1')->row();
         $this->load->view('website/halaman/visimisi', $data);  
+    }
+    public function WebStrukturOrganisasi(){
+        $data['dataHalaman'] = $this->Halaman_m->getById('2')->row();
+        $this->load->view('website/halaman/strukturorganisasi', $data);  
     }
 }

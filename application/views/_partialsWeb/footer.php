@@ -7,19 +7,25 @@
                     <div class="footer-content">
                         <div class="footer-head">
                             <div class="footer-logo">
-                                <h2><span>LPPM</span>ITDA</h2>
+                                <!-- <h2><span>LPPM</span>ITDA</h2> -->
+                                <h2>
+                                    <img src="<?= base_url()?>upload/imglogo/<?=$this->fungsi->pengaturan_web()->pengaturan_logo?>" width="90" height="75" class="img-fluid">
+                                    <?=$this->fungsi->pengaturan_web()->pengaturan_nama?>
+                                </h2>
                             </div>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                            <p>
+                            Lembaga Penelitian dan Pengabdian Kepada Masyarakat (LPPM) ITDA adalah unsur pelaksana akademik yang melaksanakan sebagian tugas pokok dan fungsi ITDA di bidang Penelitian dan Pengabdian Kepada Masyarakat.
+                            </p>
                             <div class="footer-icons">
                                 <ul>
                                     <li>
-                                        <a href="#"><i class="bi bi-facebook"></i></a>
+                                        <a href="<?=$this->fungsi->pengaturan_web()->pengaturan_fb?>" target="_blank"><i class="bi bi-facebook"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="bi bi-instagram"></i></a>
+                                        <a href="<?=$this->fungsi->pengaturan_web()->pengaturan_ig?>" target="_blank"><i class="bi bi-instagram"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="bi bi-youtube"></i></a>
+                                        <a href="<?=$this->fungsi->pengaturan_web()->pengaturan_ytb?>" target="_blank"><i class="bi bi-youtube"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -38,7 +44,7 @@
                                 <p><span>Hari:</span> Senin - Jumat</p>
                                 <p><span>Waktu:</span> 08.00 s.d. 16.00</p>
                                 <p><span>Email:</span> lppm@itda.ac.id</p>
-                                <p><span>Telp:</span> 0274 451263 ext 107</p>
+                                <p><span>Telp:</span> <?=$this->fungsi->pengaturan_web()->pengaturan_telp?> ext 107</p>
                                 <p><span>Fax:</span> 0274 415265</p>
                             </div>
                         </div>
@@ -50,7 +56,8 @@
                         <div class="footer-head">
                             <h4>YouTube</h4>
                             <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=Qy8t1Biq-Eg"></iframe>
+                            <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=Qy8t1Biq-Eg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                                <iframe width="360" height="315" src="https://www.youtube.com/embed/Qy8t1Biq-Eg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>

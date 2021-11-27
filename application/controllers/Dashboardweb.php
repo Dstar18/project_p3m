@@ -12,7 +12,7 @@ class Dashboardweb extends CI_Controller {
     // Menampilkan dashboard website
 	public function dashboard(){
         $data['dataArtikelKategori'] = $this->ArtikelKategori_m->getAll()->result();
-        $data['dataArtikel'] = $this->Artikel_m->getAll()->result();
+        $data['dataArtikel'] = $this->Artikel_m->getAllLimit()->result();
         $data['dataKategori'] = $this->Kategori_m->getAll()->result();
         // $data['dataPengaturan'] = $this->Pengaturan_m->getAll()->result();
 		$this->load->view('website/dashboard', $data);

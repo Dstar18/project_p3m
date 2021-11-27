@@ -5,6 +5,7 @@ class Dashboard extends CI_Controller{
 
     function __construct(){
         parent::__construct();
+        check_not_petugas();
         $this->load->model(['ArtikelKategori_m','Artikel_m', 'Kategori_m', 'Petugas_m']);
     }
 

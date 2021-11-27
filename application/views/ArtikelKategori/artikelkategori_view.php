@@ -24,7 +24,7 @@
 
             <!-- Main Content -->
             <section class="content row">
-                
+            
                     <div class="col-md-9">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
@@ -61,20 +61,12 @@
                                 <div class="form-group">
                                     <label for="">Kategori</label>
                                     <div class="form-check">
-                                        <?=$dataArtikelKategori->kategori_nama?>
-
-                                    <!-- <?php 
-                                        $kategoriArray = array();
-                                        foreach($dataArtikelKategori as $rowdataArtikelKategori){
-                                        $kategoriArray[] = $rowdataArtikelKategori->arkat_kategori_id;
-                                        $arkat_kategori_id[] = $rowdataArtikelKategori->kategori_id;
-                                    }?>
-                                    <?php foreach($dataKategori as $rowdataKategori){?>
-                                        <?php if(in_array($rowdataKategori->kategori_id, $kategoriArray)){?>
-                                            <input type="checkbox" name="arkatKategoriId[]" id="arkatKategoriId" data="" <?= in_array($rowdataKategori->kategori_id, $kategoriArray) ? 'checked' : ''?>  data-id="<?=$rowdataKategori->kategori_id?>" value="<?=$rowdataKategori->kategori_id?>" class="case jenisSampleCheck" ><span style="font-size: 15px;">  <?=$rowdataKategori->kategori_nama ?></span> 
-                                        <?php }?>
-                                    <?php }?> -->
-                                    
+                                   
+                                        <?php foreach($dataArtikelKategori as $rowArtikelKategori){
+                                                ?>
+                                                <li><?=$rowArtikelKategori->kategori_nama?></li>
+                                        <?php }  ?>
+                                   
                                     </div>
                                 </div>
 
@@ -89,7 +81,7 @@
                             
                         </div>
                     </div>
-               
+                    
             </section>
             </div>
             <!-- /Main Content -->
