@@ -23,7 +23,7 @@
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
             <?php if($this->fungsi->petugas_login()->petugas_level == 1 || $this->fungsi->petugas_login()->petugas_level == 2) {?>
-                <a href="<?= base_url('admin/ArtikelKategori/viewAddArtikelKategori')?>" class="nav-link">
+                <a href="<?= base_url('admin/ViewAddPost')?>" class="nav-link">
                     <i class="nav-icon fas fa-plus"></i>
                     <p>POSTINGAN BARU</p>
                 </a>
@@ -50,6 +50,16 @@
                     <a href="<?= base_url('admin/ArtikelKategori')?>" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>Artikel</p>
+                    </a>
+                </li>
+                <?php } ?>
+
+                <!-- Menu Pengumuman -->
+                <?php if($this->fungsi->petugas_login()->petugas_level == 1 || $this->fungsi->petugas_login()->petugas_level == 2) {?>
+                <li class="nav-item">
+                    <a href="<?= base_url('admin/PengumumanKategori')?>" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>Pengumuman</p>
                     </a>
                 </li>
                 <?php } ?>

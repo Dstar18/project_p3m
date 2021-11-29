@@ -12,11 +12,11 @@ class Artikel extends CI_Controller{
     }
 
     // Index
-    public function index(){
-        $data['dataArtikel'] = $this->Artikel_m->getAll()->result();
-        // echo json_encode($data);
-        $this->load->view('artikel/artikel_data', $data);
-    }
+    // public function index(){
+    //     $data['dataArtikel'] = $this->Artikel_m->getAll()->result();
+    //     // echo json_encode($data);
+    //     $this->load->view('artikel/artikel_data', $data);
+    // }
 
     //Add Artikel
     public function addArtikel(){

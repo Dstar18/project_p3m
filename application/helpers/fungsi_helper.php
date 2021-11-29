@@ -17,6 +17,7 @@ function check_not_petugas(){
     }
 }
 
+// Hanya petugas level 1 (admin) yg dapat akses
 //Level Petugas
 function check_petugas(){
     $ci =& get_instance();

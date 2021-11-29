@@ -5,7 +5,7 @@ class Artikel_m extends CI_Model{
     public function getAll(){
         $this->db->select('*');
         $this->db->from('tb_artikel');
-        $this->db->order_by('artikel_id', 'ASC');
+        $this->db->order_by('artikel_id', 'DESC');
         $this->db->join('tb_petugas','tb_petugas.petugas_id = tb_artikel.artikel_petugas_id');
         $query = $this->db->get();
         return $query;

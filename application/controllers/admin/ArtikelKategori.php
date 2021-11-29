@@ -75,12 +75,12 @@ class ArtikelKategori extends CI_Controller{
 		$this->load->view('website/blog/blog_detail',$data);
 	}
 
-	public function blog_sidebar(){
-        $data['dataArtikelKategori'] = $this->ArtikelKategori_m->getAll()->result();
-        $data['dataArtikel'] = $this->Artikel_m->getAll()->result();
-        $data['dataPetugas'] = $this->Petugas_m->getAll()->result();
-		$this->load->view('_partialsWeb/sidebar',$data);
-	}
+	// public function blog_sidebar(){
+    //     $data['dataArtikelKategori'] = $this->ArtikelKategori_m->getAll()->result();
+    //     $data['dataArtikel'] = $this->Artikel_m->getAll()->result();
+    //     $data['dataPetugas'] = $this->Petugas_m->getAll()->result();
+	// 	$this->load->view('_partialsWeb/sidebar',$data);
+	// }
 
     ///////////////////////End Tampilan Front-end Website//////////////////////
     

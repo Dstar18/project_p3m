@@ -59,10 +59,10 @@
                                     <div class="small-box bg-success">
                                         <?php if($this->fungsi->petugas_login()->petugas_level == 1 || $this->fungsi->petugas_login()->petugas_level == 2) {?>
                                             <div class="inner">
-                                                <h3><?=$dataKategori->total?></h3>
-                                                <p>Data Kategori</p>
+                                                <h3><?=$dataPengumuman->total?></h3>
+                                                <p>Data Pengumuman</p>
                                             </div>
-                                            <a href="<?= base_url('admin/Kategori')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                            <a href="<?= base_url('admin/PengumumanKategori')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -70,6 +70,19 @@
                                 <!-- small box 3 -->
                                 <div class="col-lg-3 col-6">
                                     <div class="small-box bg-warning">
+                                        <?php if($this->fungsi->petugas_login()->petugas_level == 1 || $this->fungsi->petugas_login()->petugas_level == 2) {?>
+                                            <div class="inner">
+                                                <h3><?=$dataKategori->total?></h3>
+                                                <p>Data Kategori</p>
+                                            </div>
+                                            <a href="<?= base_url('admin/Kategori')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                                <!-- /small box 3 -->
+                                <!-- small box 4 -->
+                                <div class="col-lg-3 col-6">
+                                    <div class="small-box bg-danger">
                                         <?php if($this->fungsi->petugas_login()->petugas_level == 1) {?>
                                             <div class="inner">
                                                 <h3><?=$dataPetugas->total?></h3>
@@ -79,18 +92,7 @@
                                         <?php } ?>
                                     </div>
                                 </div>
-                                <!-- /small box 3 -->
-                                <!-- small box 3 -->
-                                <!-- <div class="col-lg-3 col-6">
-                                    <div class="small-box bg-danger">
-                                        <div class="inner">
-                                            <h3>150</h3>
-                                            <p>Artikel Draft</p>
-                                        </div>
-                                        <a href="<?= base_url('admin/Artikel')?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                                    </div>
-                                </div> -->
-                                <!-- /small box 3 -->
+                                <!-- /small box 4 -->
                             </div>
                         </div>
                         <!-- /Page Content -->

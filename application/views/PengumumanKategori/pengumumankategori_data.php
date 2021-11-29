@@ -26,7 +26,7 @@
                     <div class="card">
                         <!-- Navbar Content -->
                         <div class="card-header">
-                            <h3 class="card-title">Data Artikel</h3>
+                            <h3 class="card-title">Data Pengumuman</h3>
                         </div>
                         <!-- /Navbar Content -->
                         <!-- Page Content -->
@@ -36,7 +36,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Date Insert</th>
-                                        <th>Judul Artikel</th>
+                                        <th>Judul Pengumuman</th>
                                         <th>Nama Penulis</th>
                                         <th>Kategori</th>
                                         <th>Status</th>
@@ -47,41 +47,36 @@
 
                                 <?php
                                     $i = 1;
-                                    foreach($dataArtikel as $rowArtikel){?>
+                                    foreach($dataPengumuman as $rowPengumuman){?>
                                     <tr>
                                         <td><?=$i++?></td>
-                                        <td><?=$rowArtikel->artikel_date_insert?></td>
-                                        <td><?=$rowArtikel->artikel_judul?></td>
+                                        <td><?=$rowPengumuman->pengumuman_date_insert?></td>
+                                        <td><?=$rowPengumuman->pengumuman_judul?></td>
                                         <?php
                                             foreach($dataPetugas as $rowPetugas){
-                                                if($rowArtikel->artikel_petugas_id == $rowPetugas->petugas_id){?>
+                                                if($rowPengumuman->pengumuman_petugas_id == $rowPetugas->petugas_id){?>
                                                     <td><?=$rowPetugas->petugas_nama?></td>
                                         <?php  } } ?>
                                         
                                         <td>
                                             <?php
-                                                foreach($dataArtikelKategori as $rowArtikelKategori){
-                                                    if($rowArtikel->artikel_id == $rowArtikelKategori->arkat_artikel_id){?>
-                                                            <li><?=$rowArtikelKategori->kategori_nama?></li>
+                                                foreach($dataPengumumanKategori as $rowPengumumanKategori){
+                                                    if($rowPengumuman->pengumuman_id == $rowPengumumanKategori->pgmkat_pengumuman_id){?>
+                                                            <li><?=$rowPengumumanKategori->kategori_nama?></li>
                                             <?php } } ?>
                                         </td>
 
-                                        <?php if($rowArtikel->artikel_status == 1){ ?>
+                                        <?php if($rowPengumuman->pengumuman_status == 1){ ?>
                                             <td class=" ">Publish</td>
-                                        <?php }else if($rowArtikel->artikel_status == 2){ ?>
+                                        <?php }else if($rowPengumuman->pengumuman_status == 2){ ?>
                                             <td class=" ">Draft</td>
                                         <?php } ?>
 
                                         <td>
-                                            <a href="<?= base_url('admin/ArtikelKategori/viewViewArtikelKategori/'.$rowArtikel->artikel_id)?>">
+                                            <a href="<?= base_url('admin/PengumumanKategori/viewViewPengumumanKategori/'.$rowPengumuman->pengumuman_id)?>">
                                                 <button class="btn btn-sm btn-success" id="btn-lihat">Lihat</button>
                                             </a>
-
-                                            <!-- <a href="<?= base_url('admin/ArtikelKategori/viewEditArtikelKategori/'.$rowArtikel->artikel_id)?>">
-                                                <button class="btn btn-sm btn-warning" id="btn-lihat">Edit</button>
-                                            </a> -->
-                                            
-                                            <a href="<?= base_url('admin/Artikel/deleteArtikel/'.$rowArtikel->artikel_id)?>">
+                                            <a href="<?= base_url('admin/Pengumuman/deletePengumuman/'.$rowPengumuman->pengumuman_id)?>">
                                                 <button class="btn btn-sm btn-danger" id="btn-delete">Delete</button>
                                             </a>
                                         </td>
