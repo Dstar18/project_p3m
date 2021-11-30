@@ -43,14 +43,4 @@ class Halaman extends CI_Controller{
             );
         }
     }
-
-    //////////////Controller Front-End////////////////////////
-    public function WebVisiMisi(){
-        $data['dataHalaman'] = $this->Halaman_m->getById('1')->row();
-        $this->load->view('website/halaman/visimisi', $data);  
-    }
-    public function WebStrukturOrganisasi(){
-        $data['dataHalaman'] = $this->Halaman_m->getById('2')->row();
-        $this->load->view('website/halaman/strukturorganisasi', $data);  
-    }
 }

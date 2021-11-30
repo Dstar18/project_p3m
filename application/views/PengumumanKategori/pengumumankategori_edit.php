@@ -34,12 +34,12 @@
                                     </div>
                                     <div class="card-body">
                                         <!-- Waktu -->
-                                        <input type="text" name="pengumuman_date_insert" value="<?=$dataPengumuman->pengumuman_date_insert?>" class="form-control" readonly>
-                                        <input type="text" name="pengumuman_date_update" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control" readonly>
+                                        <input type="hidden" name="pengumuman_date_insert" value="<?=$dataPengumuman->pengumuman_date_insert?>" class="form-control" readonly>
+                                        <input type="hidden" name="pengumuman_date_update" value="<?php echo date('Y-m-d h:i:sa');?>" class="form-control" readonly>
 
                                         <!-- ID Penulis/Admin -->
-                                        <input type="text" name="pengumuman_id" class="form-control" value="<?=$dataPengumuman->pengumuman_id?>" readonly>
-                                        <input type="text" name="pengumuman_petugas_id" class="form-control" value="<?=$this->fungsi->petugas_login()->petugas_id?>" readonly>
+                                        <input type="hidden" name="pengumuman_id" class="form-control" value="<?=$dataPengumuman->pengumuman_id?>" readonly>
+                                        <input type="hidden" name="pengumuman_petugas_id" class="form-control" value="<?=$this->fungsi->petugas_login()->petugas_id?>" readonly>
                                         
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="pengumuman_judul" value="<?=$dataPengumuman->pengumuman_judul?>" required>

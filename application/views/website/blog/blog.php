@@ -35,63 +35,7 @@
                                         </form>
                                         <!-- /Menu Pencarian -->
                                     </div>
-                                    <div class="single-blog-page">
-                                        <!-- Recent Post -->
-                                        <div class="left-blog">
-                                            <h4>RECENT POST</h4>
-                                            <div class="recent-post">
-                                                <!-- single post -->
-                                                <div class="recent-single-post">
-                                                    <div class="post-img">
-                                                        <a href="#">
-                                                            <img src="assetsWeb/img/blog/1.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="pst-content">
-                                                        <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
-                                                    </div>
-                                                </div>
-                                                <!-- /single post -->
-                                                <!-- single post -->
-                                                <div class="recent-single-post">
-                                                    <div class="post-img">
-                                                        <a href="#">
-                                                            <img src="assetsWeb/img/blog/2.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="pst-content">
-                                                        <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
-                                                    </div>
-                                                </div>
-                                                <!-- /single post -->
-                                                <!-- single post -->
-                                                <div class="recent-single-post">
-                                                    <div class="post-img">
-                                                        <a href="#">
-                                                            <img src="assetsWeb/img/blog/3.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="pst-content">
-                                                        <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
-                                                    </div>
-                                                </div>
-                                                <!-- /single post -->
-                                                <!-- single post -->
-                                                <div class="recent-single-post">
-                                                    <div class="post-img">
-                                                        <a href="#">
-                                                            <img src="assetsWeb/img/blog/4.jpg" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="pst-content">
-                                                        <p><a href="#"> Redug Lerse dolor sit amet consect adipis elit.</a></p>
-                                                    </div>
-                                                </div>
-                                                <!-- /single post -->
-                                            </div>
-                                        </div>
-                                        <!-- /Recent Post -->
-                                    </div>
+                                    
                                     <div class="single-blog-page">
                                         <!-- Menu Kategori -->
                                         <div class="left-blog">
@@ -132,6 +76,7 @@
                                 </div>
                             </div>
                             <!-- ===== /Left Sidebar ===== -->
+
                             <!-- ===== Single Blog ===== -->
                             <div class="col-md-8 col-sm-8 col-xs-12">
                                 <div class="row">
@@ -142,22 +87,18 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="single-blog">
                                             <div class="single-blog-img">
-                                                <a href="blog-details.html">
-                                                    <img src="assetsWeb/img/blog/1.jpg" alt="">
+                                                <a>
+                                                    <img src="<?= base_url()?>upload/imgsampul/<?=$rowArtikel->artikel_sampul?>" width="275" height="250">
                                                 </a>
                                             </div>
                                             <div class="blog-meta">
-                                                <span class="comments-type">
-                                                    <i class="bi bi-chat"></i>
-                                                    <a href="#">12 comments</a>
-                                                </span>
                                                 <span class="date-type">
                                                     <i class="bi bi-calendar"></i><?=$rowArtikel->artikel_date_insert?>
                                                 </span>
                                             </div>
                                             <div class="blog-text">
                                             <h4>
-                                                <a href="#"><?=$rowArtikel->artikel_judul?></a>
+                                                <a href="<?= base_url('website/ArtikelWeb/blog_detail/'.$rowArtikel->artikel_id)?>"><?=$rowArtikel->artikel_judul?></a>
                                             </h4>
                                             <p>
                                            
@@ -167,7 +108,7 @@
                                             </p>
                                             </div>
                                             <span>
-                                                <a href="<?= base_url('admin/ArtikelKategori/blog_detail/'.$rowArtikel->artikel_id)?>" class="ready-btn">Read more</a>
+                                                <a href="<?= base_url('website/ArtikelWeb/blog_detail/'.$rowArtikel->artikel_id)?>" class="ready-btn">Read more</a>
                                             </span>
                                         </div>
                                     </div>

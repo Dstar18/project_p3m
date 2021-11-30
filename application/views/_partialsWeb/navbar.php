@@ -12,14 +12,14 @@
 
         <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a href="<?= base_url('admin/Halaman/WebVisiMisi')?>">Visi & Misi</a></li>
-            <li><a href="<?= base_url('admin/Halaman/WebStrukturOrganisasi')?>">Struktur Organisasi</a></li>
+            <li><a href="<?= base_url('website/HalamanWeb/WebVisiMisi')?>">Visi & Misi</a></li>
+            <li><a href="<?= base_url('website/HalamanWeb/WebStrukturOrganisasi')?>">Struktur Organisasi</a></li>
           </ul>
         </li>
 
-        <li><a class="nav-link scrollto" href="#">Pengumuman</a></li>
+        <li><a class="nav-link scrollto" href="<?= base_url('website/PengumumanWeb/pengumuman')?>">Pengumuman</a></li>
 
-        <li><a class="nav-link scrollto" href="<?= base_url('admin/ArtikelKategori/blog')?>">Blog</a></li>
+        <li><a class="nav-link scrollto" href="<?= base_url('website/ArtikelWeb/blog')?>">Blog</a></li>
 
         <li class="dropdown"><a href="#"><span>Publikasi</span> <i class="bi bi-chevron-down"></i></a>
           <ul>

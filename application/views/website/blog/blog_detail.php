@@ -36,29 +36,18 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="well-middle">
                                     <div class="single-well">
-                                        <h4 class="sec-head">project Maintenance</h4>
-                                        <!-- <a href="#">
-                                            <img src="<?= base_url()?>assetsWeb/img/about/1.jpg" alt="">
-                                        </a> -->
+                                        <p><?php echo date('M d, Y H:i', strtotime($dataArtikel->artikel_date_insert)); ?> / 
+                                        
+                                            <?php foreach($dataArtikelKategori as $rowArtikelKategori){ ?>
+                                                <?=$rowArtikelKategori->kategori_nama?> -
+                                            <?php }  ?>
+                                        </p>
+                                        <a><center>
+                                            <img src="<?= base_url()?>upload/imgsampul/<?=$dataArtikel->artikel_sampul?>" width="800" height="775">
+                                        </center></a>
                                         <p>
-                                        <?=$dataArtikel->artikel_content?>                                        </p>
-                                        <ul>
-                                            <li>
-                                                <i class="bi bi-check"></i> Interior design Package
-                                            </li>
-                                            <li>
-                                                <i class="bi bi-check"></i> Building House
-                                            </li>
-                                            <li>
-                                                <i class="bi bi-check"></i> Reparing of Residentail Roof
-                                            </li>
-                                            <li>
-                                                <i class="bi bi-check"></i> Renovaion of Commercial Office
-                                            </li>
-                                            <li>
-                                                <i class="bi bi-check"></i> Make Quality Products
-                                            </li>
-                                        </ul>
+                                            <?=$dataArtikel->artikel_content?>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

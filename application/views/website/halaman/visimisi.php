@@ -36,10 +36,6 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="well-middle">
                                     <div class="single-well">
-                                        <!-- <h4 class="sec-head">project Maintenance</h4> -->
-                                        <!-- <a href="#">
-                                            <img src="<?= base_url()?>assetsWeb/img/about/1.jpg" alt="">
-                                        </a> -->
                                         <p>
                                             <?=$dataHalaman->halaman_content?> 
                                         </p>
