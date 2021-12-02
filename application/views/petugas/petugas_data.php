@@ -77,7 +77,7 @@
                                                 <a href="<?= base_url('admin/Petugas/viewEditPetugas/'.$rowPetugas->petugas_id)?>">
                                                     <button class="btn btn-sm btn-warning" id="btn-edit">Edit</button>
                                                 </a>
-                                                <a href="<?= base_url('admin/Petugas/deletePetugas/'.$rowPetugas->petugas_id)?>">
+                                                <a href="<?= base_url('admin/Petugas/deletePetugas/'.$rowPetugas->petugas_id)?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
                                                     <button class="btn btn-sm btn-danger" id="btn-delete">Delete</button>
                                                 </a>
                                             </td>

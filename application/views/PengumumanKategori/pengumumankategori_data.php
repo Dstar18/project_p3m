@@ -76,7 +76,7 @@
                                             <a href="<?= base_url('admin/PengumumanKategori/viewViewPengumumanKategori/'.$rowPengumuman->pengumuman_id)?>">
                                                 <button class="btn btn-sm btn-success" id="btn-lihat">Lihat</button>
                                             </a>
-                                            <a href="<?= base_url('admin/Pengumuman/deletePengumuman/'.$rowPengumuman->pengumuman_id)?>">
+                                            <a href="<?= base_url('admin/Pengumuman/deletePengumuman/'.$rowPengumuman->pengumuman_id)?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
                                                 <button class="btn btn-sm btn-danger" id="btn-delete">Delete</button>
                                             </a>
                                         </td>

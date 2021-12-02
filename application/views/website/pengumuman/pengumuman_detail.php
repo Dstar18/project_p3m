@@ -42,9 +42,9 @@
                                                 <?=$rowPengumumanKategori->kategori_nama?> -
                                             <?php }  ?>
                                         </p>
-                                        <a><center>
-                                            <img src="<?= base_url()?>upload/imgsampul/<?=$dataPengumuman->pengumuman_sampul?>" width="800" height="775">
-                                        </center></a>
+                                        <a>
+                                            <img src="<?= base_url()?>upload/imgsampul/<?=$dataPengumuman->pengumuman_sampul?>" width="700" height="675">
+                                        </a>
                                         <p>
                                             <?=$dataPengumuman->pengumuman_content?>
                                         </p>

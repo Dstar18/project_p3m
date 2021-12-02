@@ -15,6 +15,10 @@
                 <!-- carouselBlog -->
                 <?php $this->load->view('_partialsWeb/carouselBlog.php');?>
                 <!-- /carouselBlog -->
+
+                <!-- BreadcrumbWeb -->
+                <?php $this->load->view('_partialsWeb/breadcrumbWeb.php');?>
+                <!-- BreadcrumbWeb -->
                 
                 <!-- ======= Page Content ======= -->
                 <div class="blog-page area-padding">
@@ -116,12 +120,15 @@
                                     <!-- /blog 1 detail -->
                                     <!-- Button Next Link -->
                                     <div class="blog-pagination">
+                                    
                                         <ul class="pagination">
-                                            <li class="page-item"><a href="#" class="page-link">&lt;</a></li>
+                                        
+                                            <li class="page-item"><?php echo $pagination; ?></li>
+                                            <!-- <li class="page-item"><a href="#" class="page-link">&lt;</a></li>
                                             <li class="page-item active"><a href="#" class="page-link">1</a></li>
                                             <li class="page-item"><a href="#" class="page-link">2</a></li>
                                             <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                            <li class="page-item"><a href="#" class="page-link">&gt;</a></li>
+                                            <li class="page-item"><a href="#" class="page-link">&gt;</a></li> -->
                                         </ul>
                                     </div>
                                     <!-- /Button Next Link -->

@@ -11,13 +11,13 @@ class Artikel_m extends CI_Model{
         return $query;
     }
 
-    public function getAllPublish(){
+    public function getAllPublish($limit, $start){
         $this->db->select('*');
-        $this->db->from('tb_artikel');
+        // $this->db->from('tb_artikel');
         $this->db->where('artikel_status', '1');
         $this->db->order_by('artikel_id', 'DESC');
         $this->db->join('tb_petugas','tb_petugas.petugas_id = tb_artikel.artikel_petugas_id');
-        $query = $this->db->get();
+        $query = $this->db->get('tb_artikel', $limit, $start);
         return $query;
     }
 
@@ -34,6 +34,20 @@ class Artikel_m extends CI_Model{
         $query = $this->db->get();
         return $query;
     }
+
+    // public function getDataPagination($limit, $start){
+    //     $this->db->select('*');
+    //     $this->db->from('tb_artikel');
+    //     $this->db->order_by('artikel_id', 'DESC');
+    //     $this->db->limit($limit, $start);
+
+    //     $query = $this->db->get();
+    //     return $query;
+    // }
+
+    // public function getDataPagination($limit, $start){
+    //     return $this->db->get('tb_artikel', $limit, $start)->result_array();
+    // }
 
     public function getById($id){
         $this->db->select('*');

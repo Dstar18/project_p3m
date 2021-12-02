@@ -26,7 +26,7 @@
                     <div class="card">
                         <!-- Navbar Content -->
                         <div class="card-header">
-                            <h3 class="card-title">KATEGORI</h3>
+                            <h3 class="card-title">Data Kategori</h3>
                             <div class="card-tools">
                                 <a href="<?= base_url('admin/Kategori/viewAddKategori')?>">
                                 <button type="button" class="btn btn-block btn-primary">
@@ -59,7 +59,7 @@
                                                 <a href="<?= base_url('admin/Kategori/viewEditKategori/'.$rowKategori->kategori_id)?>">
                                                     <button class="btn btn-sm btn-warning" id="btn-edit">Edit</button>
                                                 </a>
-                                                <a href="<?= base_url('admin/Kategori/deleteKategori/'.$rowKategori->kategori_id)?>">
+                                                <a href="<?= base_url('admin/Kategori/deleteKategori/'.$rowKategori->kategori_id)?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
                                                     <button class="btn btn-sm btn-danger" id="btn-delete">Delete</button>
                                                 </a>
                                             </td>

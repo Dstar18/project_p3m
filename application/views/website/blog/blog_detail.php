@@ -42,9 +42,9 @@
                                                 <?=$rowArtikelKategori->kategori_nama?> -
                                             <?php }  ?>
                                         </p>
-                                        <a><center>
-                                            <img src="<?= base_url()?>upload/imgsampul/<?=$dataArtikel->artikel_sampul?>" width="800" height="775">
-                                        </center></a>
+                                        <a>
+                                            <img src="<?= base_url()?>upload/imgsampul/<?=$dataArtikel->artikel_sampul?>" width="700" height="675">
+                                        </a>
                                         <p>
                                             <?=$dataArtikel->artikel_content?>
                                         </p>

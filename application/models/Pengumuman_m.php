@@ -11,13 +11,13 @@ class Pengumuman_m extends CI_Model{
         return $query;
     }
 
-    public function getAllPublish(){
+    public function getAllPublish($limit, $start){
         $this->db->select('*');
-        $this->db->from('tb_pengumuman');
+        // $this->db->from('tb_pengumuman');
         $this->db->where('pengumuman_status', '1');
         $this->db->order_by('pengumuman_id', 'DESC');
         $this->db->join('tb_petugas','tb_petugas.petugas_id = tb_pengumuman.pengumuman_petugas_id');
-        $query = $this->db->get();
+        $query = $this->db->get('tb_pengumuman', $limit, $start);
         return $query;
     }
 

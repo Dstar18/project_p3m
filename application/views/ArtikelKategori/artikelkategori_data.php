@@ -81,7 +81,7 @@
                                                 <button class="btn btn-sm btn-warning" id="btn-lihat">Edit</button>
                                             </a> -->
                                             
-                                            <a href="<?= base_url('admin/Artikel/deleteArtikel/'.$rowArtikel->artikel_id)?>">
+                                            <a href="<?= base_url('admin/Artikel/deleteArtikel/'.$rowArtikel->artikel_id)?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')">
                                                 <button class="btn btn-sm btn-danger" id="btn-delete">Delete</button>
                                             </a>
                                         </td>
