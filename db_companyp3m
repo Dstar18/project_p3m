@@ -1,0 +1,782 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.9 (Ubuntu 12.9-0ubuntu0.20.04.1)
+-- Dumped by pg_dump version 12.9 (Ubuntu 12.9-0ubuntu0.20.04.1)
+
+-- Started on 2021-12-07 21:29:13 WIB
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 3 (class 2615 OID 2200)
+-- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO postgres;
+
+--
+-- TOC entry 3063 (class 0 OID 0)
+-- Dependencies: 3
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
+--
+-- TOC entry 587 (class 1247 OID 16411)
+-- Name: admin_level; Type: TYPE; Schema: public; Owner: admin
+--
+
+CREATE TYPE public.admin_level AS ENUM (
+    'admin',
+    'penulis'
+);
+
+
+ALTER TYPE public.admin_level OWNER TO admin;
+
+--
+-- TOC entry 641 (class 1247 OID 16402)
+-- Name: pengguna_level; Type: TYPE; Schema: public; Owner: admin
+--
+
+CREATE TYPE public.pengguna_level AS ENUM (
+    'admin',
+    'penulis'
+);
+
+
+ALTER TYPE public.pengguna_level OWNER TO admin;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 205 (class 1259 OID 16754)
+-- Name: tb_artikel; Type: TABLE; Schema: public; Owner: admin
+--
+
+CREATE TABLE public.tb_artikel (
+    artikel_id bigint NOT NULL,
+    artikel_date_insert timestamp without time zone,
+    artikel_date_update timestamp without time zone,
+    artikel_judul character varying,
+    artikel_sampul character varying,
+    artikel_content text,
+    artikel_status bigint,
+    artikel_petugas_id bigint
+);
+
+
+ALTER TABLE public.tb_artikel OWNER TO admin;
+
+--
+-- TOC entry 204 (class 1259 OID 16752)
+-- Name: tb_artikel_artikel_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE public.tb_artikel_artikel_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tb_artikel_artikel_id_seq OWNER TO admin;
+
+--
+-- TOC entry 3064 (class 0 OID 0)
+-- Dependencies: 204
+-- Name: tb_artikel_artikel_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE public.tb_artikel_artikel_id_seq OWNED BY public.tb_artikel.artikel_id;
+
+
+--
+-- TOC entry 207 (class 1259 OID 16765)
+-- Name: tb_artikelkategori; Type: TABLE; Schema: public; Owner: admin
+--
+
+CREATE TABLE public.tb_artikelkategori (
+    arkat_id bigint NOT NULL,
+    arkat_artikel_id bigint,
+    arkat_kategori_id bigint
+);
+
+
+ALTER TABLE public.tb_artikelkategori OWNER TO admin;
+
+--
+-- TOC entry 206 (class 1259 OID 16763)
+-- Name: tb_artikelkategori_arkat_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE public.tb_artikelkategori_arkat_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tb_artikelkategori_arkat_id_seq OWNER TO admin;
+
+--
+-- TOC entry 3065 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: tb_artikelkategori_arkat_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE public.tb_artikelkategori_arkat_id_seq OWNED BY public.tb_artikelkategori.arkat_id;
+
+
+--
+-- TOC entry 213 (class 1259 OID 16820)
+-- Name: tb_halaman; Type: TABLE; Schema: public; Owner: admin
+--
+
+CREATE TABLE public.tb_halaman (
+    halaman_id bigint NOT NULL,
+    halaman_judul character varying,
+    halaman_content text
+);
+
+
+ALTER TABLE public.tb_halaman OWNER TO admin;
+
+--
+-- TOC entry 212 (class 1259 OID 16818)
+-- Name: tb_halaman_halaman_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE public.tb_halaman_halaman_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tb_halaman_halaman_id_seq OWNER TO admin;
+
+--
+-- TOC entry 3066 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: tb_halaman_halaman_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE public.tb_halaman_halaman_id_seq OWNED BY public.tb_halaman.halaman_id;
+
+
+--
+-- TOC entry 203 (class 1259 OID 16682)
+-- Name: tb_kategori; Type: TABLE; Schema: public; Owner: admin
+--
+
+CREATE TABLE public.tb_kategori (
+    kategori_id bigint NOT NULL,
+    kategori_nama character varying
+);
+
+
+ALTER TABLE public.tb_kategori OWNER TO admin;
+
+--
+-- TOC entry 202 (class 1259 OID 16680)
+-- Name: tb_kategori_kategori_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE public.tb_kategori_kategori_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tb_kategori_kategori_id_seq OWNER TO admin;
+
+--
+-- TOC entry 3067 (class 0 OID 0)
+-- Dependencies: 202
+-- Name: tb_kategori_kategori_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE public.tb_kategori_kategori_id_seq OWNED BY public.tb_kategori.kategori_id;
+
+
+--
+-- TOC entry 209 (class 1259 OID 16773)
+-- Name: tb_pengaturan; Type: TABLE; Schema: public; Owner: admin
+--
+
+CREATE TABLE public.tb_pengaturan (
+    pengaturan_id bigint NOT NULL,
+    pengaturan_nama character varying,
+    pengaturan_logo character varying,
+    pengaturan_telp bigint,
+    pengaturan_fb character varying,
+    pengaturan_ig character varying,
+    pengaturan_ytb character varying
+);
+
+
+ALTER TABLE public.tb_pengaturan OWNER TO admin;
+
+--
+-- TOC entry 208 (class 1259 OID 16771)
+-- Name: tb_pengaturan_pengaturan_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE public.tb_pengaturan_pengaturan_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tb_pengaturan_pengaturan_id_seq OWNER TO admin;
+
+--
+-- TOC entry 3068 (class 0 OID 0)
+-- Dependencies: 208
+-- Name: tb_pengaturan_pengaturan_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE public.tb_pengaturan_pengaturan_id_seq OWNED BY public.tb_pengaturan.pengaturan_id;
+
+
+--
+-- TOC entry 217 (class 1259 OID 16860)
+-- Name: tb_pengumuman; Type: TABLE; Schema: public; Owner: admin
+--
+
+CREATE TABLE public.tb_pengumuman (
+    pengumuman_id bigint NOT NULL,
+    pengumuman_date_insert timestamp without time zone,
+    pengumuman_date_update timestamp without time zone,
+    pengumuman_judul character varying,
+    pengumuman_sampul character varying,
+    pengumuman_content text,
+    pengumuman_status character varying,
+    pengumuman_petugas_id bigint
+);
+
+
+ALTER TABLE public.tb_pengumuman OWNER TO admin;
+
+--
+-- TOC entry 216 (class 1259 OID 16858)
+-- Name: tb_pengumuman_pengumuman_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE public.tb_pengumuman_pengumuman_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tb_pengumuman_pengumuman_id_seq OWNER TO admin;
+
+--
+-- TOC entry 3069 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: tb_pengumuman_pengumuman_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE public.tb_pengumuman_pengumuman_id_seq OWNED BY public.tb_pengumuman.pengumuman_id;
+
+
+--
+-- TOC entry 215 (class 1259 OID 16852)
+-- Name: tb_pengumumankategori; Type: TABLE; Schema: public; Owner: admin
+--
+
+CREATE TABLE public.tb_pengumumankategori (
+    pgmkat_id bigint NOT NULL,
+    pgmkat_pengumuman_id bigint,
+    pgmkat_kategori_id bigint
+);
+
+
+ALTER TABLE public.tb_pengumumankategori OWNER TO admin;
+
+--
+-- TOC entry 214 (class 1259 OID 16850)
+-- Name: tb_pengumumankategori_pgmkat_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE public.tb_pengumumankategori_pgmkat_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tb_pengumumankategori_pgmkat_id_seq OWNER TO admin;
+
+--
+-- TOC entry 3070 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: tb_pengumumankategori_pgmkat_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE public.tb_pengumumankategori_pgmkat_id_seq OWNED BY public.tb_pengumumankategori.pgmkat_id;
+
+
+--
+-- TOC entry 211 (class 1259 OID 16804)
+-- Name: tb_petugas; Type: TABLE; Schema: public; Owner: admin
+--
+
+CREATE TABLE public.tb_petugas (
+    petugas_id bigint NOT NULL,
+    "petugas_NIP" bigint,
+    petugas_nama character varying,
+    petugas_email character varying,
+    petugas_nohp bigint,
+    petugas_password character varying,
+    petugas_img_profil character varying,
+    petugas_level bigint
+);
+
+
+ALTER TABLE public.tb_petugas OWNER TO admin;
+
+--
+-- TOC entry 210 (class 1259 OID 16802)
+-- Name: tb_petugas_petugas_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE public.tb_petugas_petugas_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tb_petugas_petugas_id_seq OWNER TO admin;
+
+--
+-- TOC entry 3071 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: tb_petugas_petugas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE public.tb_petugas_petugas_id_seq OWNED BY public.tb_petugas.petugas_id;
+
+
+--
+-- TOC entry 2887 (class 2604 OID 16757)
+-- Name: tb_artikel artikel_id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_artikel ALTER COLUMN artikel_id SET DEFAULT nextval('public.tb_artikel_artikel_id_seq'::regclass);
+
+
+--
+-- TOC entry 2888 (class 2604 OID 16768)
+-- Name: tb_artikelkategori arkat_id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_artikelkategori ALTER COLUMN arkat_id SET DEFAULT nextval('public.tb_artikelkategori_arkat_id_seq'::regclass);
+
+
+--
+-- TOC entry 2891 (class 2604 OID 16823)
+-- Name: tb_halaman halaman_id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_halaman ALTER COLUMN halaman_id SET DEFAULT nextval('public.tb_halaman_halaman_id_seq'::regclass);
+
+
+--
+-- TOC entry 2886 (class 2604 OID 16685)
+-- Name: tb_kategori kategori_id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_kategori ALTER COLUMN kategori_id SET DEFAULT nextval('public.tb_kategori_kategori_id_seq'::regclass);
+
+
+--
+-- TOC entry 2889 (class 2604 OID 16776)
+-- Name: tb_pengaturan pengaturan_id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_pengaturan ALTER COLUMN pengaturan_id SET DEFAULT nextval('public.tb_pengaturan_pengaturan_id_seq'::regclass);
+
+
+--
+-- TOC entry 2893 (class 2604 OID 16863)
+-- Name: tb_pengumuman pengumuman_id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_pengumuman ALTER COLUMN pengumuman_id SET DEFAULT nextval('public.tb_pengumuman_pengumuman_id_seq'::regclass);
+
+
+--
+-- TOC entry 2892 (class 2604 OID 16855)
+-- Name: tb_pengumumankategori pgmkat_id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_pengumumankategori ALTER COLUMN pgmkat_id SET DEFAULT nextval('public.tb_pengumumankategori_pgmkat_id_seq'::regclass);
+
+
+--
+-- TOC entry 2890 (class 2604 OID 16807)
+-- Name: tb_petugas petugas_id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_petugas ALTER COLUMN petugas_id SET DEFAULT nextval('public.tb_petugas_petugas_id_seq'::regclass);
+
+
+--
+-- TOC entry 3045 (class 0 OID 16754)
+-- Dependencies: 205
+-- Data for Name: tb_artikel; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY public.tb_artikel (artikel_id, artikel_date_insert, artikel_date_update, artikel_judul, artikel_sampul, artikel_content, artikel_status, artikel_petugas_id) FROM stdin;
+16	2021-11-13 14:41:31	2021-11-27 19:10:24	artikel2233zx	imgpsampul-211113-118f1e478f.jpg	<p>fdsjfhdjf</p><p>fsdfkjdk</p><p>1232132</p><p>fkdfjdf</p>	1	28
+18	2021-11-14 09:40:44	2021-11-30 10:33:44	DOSEN ITDA BERIKAN PELATIHAN BAHASA INGGRIS KEPADA PENGELOLA WISATA DI KABUPATEN GUNUNG KIDUL	imgpsampul-211130-58cd28511b.jpeg	<p>Masa pandemi Covid-19 berdampak pada menurunnya kunjungan wisatawan dan berkurangnya aktivitas wisata. Akan tetapi, masa – masa ini justru menjadi momentum bagi para pelaku wisata untuk mempersiapkan diri, terutama dengan mengasah kemampuan dalam berbahasa asing, untuk menyambut kembali kedatangan wisatawan mancanegara ketika pembatasan wilayah telah kembali dibuka. Tuntutan dan ekspektasi terhadap kualitas pelayan pariwisata semakin tinggi mengikuti perubahan tren wisata dengan pola baru, dimana experience akan benar – benar diutamakan. Peningkatan kualitas pelayanan melalui interaksi yang baik dan komunikatif dapat menciptakan kesan dan pengalaman menarik bagi wisatawan, khususnya bagi wisatawan mancanegara. Untuk mendukung hal ini, sebagai kelanjutan kerjasama antara Pemerintahan Kabupaten (Pemkab) Gunung Kidul dengan Insititut Teknologi Dirgantara Adisutjipto (ITDA), maka Dinas Pariwisata (Dinpar) Pemkab Gunung Kidul mengundang dua Dosen ITDA, Dewanti Ratna P., S.Pd., M.Hum. dan Maria Asumpta D. K., S.Pd., M.Hum sebagai narasumber dalam kegiatan pelatihan Bahasa Inggris bagi pengelola wisata pada hari Senin (15/11).</p><p>Kegiatan yang dilangsungkan di Kantor Dinas Pariwisata Gunung Kidul ini diikuti oleh 18 perwakilan dari desa wisata yang berada di wilayah Gunung Kidul. Dalam kegiatan ini, dosen ITDA memberikan pelatihan bahasa inggris dan pengaplikasiannya sebagai tour guide. Pelatihan ini bertujuan memberikan dan meningkatkan skill bahasa asing bagi pelaku wisata. Karena skill bahasa asing, khususnya bahasa inggris punya peranan penting dalam memperkenalkan dan mempromosikan potensi wisata yang ada di wilayah Gunung Kidul kepada wisatawan mancanegara. </p><p><br></p>	1	28
+21	2021-11-16 15:16:21	2021-12-01 13:28:28	gddffdf	imgpsampul-211116-614463791b.jpeg	<p><span xss=removed></span></p><div class="blog-text" xss=removed><h4 xss=removed><a href="http://localhost/project_p3m/blog.html"><span xss=removed>Assumenda repud eum veniam</span></a></h4><p xss=removed>Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.</p></div>	2	29
+20	2021-11-14 12:34:01	2021-11-30 10:30:51	WUJUD NYATA PENGABDIAN MASYARAKAT, ITDA SALURKAN PAKET SEMBAKO KEPADA WARGA SEKITAR	imgpsampul-211130-a9245dff08.png	<p>Sebagai perwujudan tanggung jawab sosial kepada masyarakat untuk menumbuhkan hubungan baik sampai ke lapisan masyarakat yang membutuhkan dukungan, Insititut Teknologi Dirgantara Adisutjipto (ITDA) mengadakan kegiatan Pengabdian Masyarakat pada hari Senin, (22/11).</p><p>Pengabdian Masyarakat yang diselenggarakan ITDA kepada warga Dukuh Maguwo, Tegal Kopen dan Wonocatur. Bantuan sembako sebanyak 150 paket ini secara simbolik diserahkan langsung oleh Rektor ITDA, Marsda TNI (Purn) Dr. Ir. Drs. T. Ken Darmastono ,M.Sc. kepada Bapak Nunung Yulianto, selaku Dukuh Wonocatur, di Lapangan Gedung Rektorat, ITDA. Kegiatan ini merupakan bentuk kepedulian ITDA kepada masyarakat di sekitar yang terkena dampak sosial ekonomi baik secara langsung maupun tidak langsung dari pandemi COVID-19.</p>	1	28
+22	2021-11-16 15:20:51	2021-11-30 11:52:14	INFORMATIKA ITDA MENGABDI, BERIKAN PELATIHAN DIGITAL MARKETING BAGI UMKM DESA PENGKOK GUNUNGKIDUL	imgpsampul-211130-9fec007718.jpeg	<p>Pandemi Covid-19 membuat seluruh Usaha Mikro Kecil dan Menengah (UMKM) menjadi sektor paling rentan terkena imbasnya. Dan sebagai kelanjutan kerjasama antara Pemerintahan Kabupaten (Pemkab) Gunung Kidul dengan Insititut Teknologi Dirgantara Adisutjipto (ITDA), Dosen Prodi Informatika ITDA melaksanakan Pengabdian Kepada Masyarakat dengan tema " Pelatihan Digital Marketing untuk Pelaku Usaha Ekonomi Kreatif di Desa Pengkok, Kapanewo Patuk, Gunungkidul " yang dilaksanakan selama 4 hari, mulai dari tanggal 15 – 18 November 2021, yang bertempat di Balai Desa Pengkok, Kapanewon Patuk Gunungkidul.</p><p><br></p><p>Kegiatan yang diikuti oleh 12 orang dosen Prodi Informatika ini, diikuti juga oleh mahasiswa dan alumni Informatika sebagai narasumber dalam pelatihan. Pelatihan yang diikuti oleh 18 pelaku UMKM ini beragendakan kegiatan pelatihan pengambilan foto produk, pelatihan editing foto, pembuatan video produk, promosi produk ke media sosial Instagram dan TikTok, dan cara pemasaran produk melalui e-commerce, yaitu Shopee. Yang meliputi pembuatan toko online, upload produk dan tips memaksimalkan penjualan di Shopee.</p><p><br></p><p>Harapannya dengan adanya pelatihan ini, masyarakat pemilik usaha dapat bertahan selama pandemi. Dan dengan digitalisasi UMKM ini diharapkan dapat meningkatkan perekonomian masyarakat Desa Pengok, Kabupaten Gunung Kidul.</p>	1	29
+33	2021-12-02 12:09:02	2021-12-07 09:11:52	DOSEN TEKNIK INDUSTRI ITDA MENJADI NARASUMBER DALAM KEGIATAN PELATIHAN DIGITALISASI DINPAR PEMKAB GUNUNG KIDUL	imgpsampul-211202-7892cb5b41.jpeg	<p>Saat ini teknologi informasi dan komunikasi semakin meningkat, era industri 4.0 dirasa semakin meningkatkan sistem teknologi yang dapat mempermudah berbagai kehidupan manusia, termasuk dalam dunia pariwisata. Teknologi informasi menjadi salah satu sarana yang digunakan dalam mempromosikan pariwisata dari berbagai media sosial dengan berbagai digital marketingnya. Dengan adanya digital marketing minat seseorang untuk pergi berlibur semakin tinggi. Masyarakat di era 4.0 sudah disuguhkan dengan berbagai kemudahan dari berbagai teknologi yang ada, termasuk  dalam kemudahan mendapatkan kemudahan dalam pariwisata. Untuk mendukung hal ini, sebagai kelanjutan kerjasama antara Pemerintahan Kabupaten (Pemkab) Gunung Kidul dengan Insititut Teknologi Dirgantara Adisutjipto (ITDA), maka Dinas Pariwisata (Dinpar) Pemkab Gunung Kidul mengundang Dosen Teknik Industri ITDA, Uuyunul Mauidzoh, S.T.,M.T. sebagai narasumber dalam kegiatan “Pelatihan Digitalisasi : Branding, Pemasaran dan Penjualan pada Desa Wisata, Homestay/Pondok Wisata, Kuliner, Sovenir, Fotografi.” pada Selasa (12/10), berlokasi di Hotel Pesonna Tugu, Yogyakarta.</p><p>Dalam sesi paparannya, Ibu Uuyunul Mauidzoh,S.T.,M.T. menjelaskan pentingnya pemasaran digital, saluran dan aplikasi digital yang dapat digunakan untuk promosi dan penjualan produk pariwisata, tantangan pemasaran digital dalam memajukan pariwisata berdaya saing, serta kunci keberhasilan pemasaran digital. Selain itu, peserta juga dilatih untuk membuat media promosi digital berupa situs web, blog, ecommerce dan lainnya. </p><p>Harapannya, pelatihan ini dapat memberikan mindset dan pengetahuan terkait Komunikasi Pemasaran Digital, memberikan skill pada peserta dalam mengkomunikasikan merek dan produk melalui media digital, dan dapat mengoptimalkan komunikasi pemasaran digital yang sudah dilakukan peserta sebagai upaya untuk meningkatkan kemajuan pariwisata khususnya di daerah Kabupaten Gunung Kidul.</p>	1	29
+\.
+
+
+--
+-- TOC entry 3047 (class 0 OID 16765)
+-- Dependencies: 207
+-- Data for Name: tb_artikelkategori; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY public.tb_artikelkategori (arkat_id, arkat_artikel_id, arkat_kategori_id) FROM stdin;
+79	20	1
+80	20	4
+81	18	4
+82	22	1
+83	22	4
+96	21	1
+97	21	5
+109	33	4
+62	16	1
+63	16	6
+\.
+
+
+--
+-- TOC entry 3053 (class 0 OID 16820)
+-- Dependencies: 213
+-- Data for Name: tb_halaman; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY public.tb_halaman (halaman_id, halaman_judul, halaman_content) FROM stdin;
+1	Visi & Misi	<h2>Visi</h2><p>Visi LPPM Menjadi lembaga yang Mewujudkan Penelitian dan Pengabdian pada Masyarakat yang Unggul dan Berkualitas dalam Mengembangkan Teknologi yang Menunjang Industri dan Kedirgantaraan serta mampu Bersaing di Asia Tenggara. </p><p><br></p><h2>Misi</h2><p>Misi LPPM ITDA Yogyakarta yaitu :</p><p>1. Mengkoordinasikan, merencanakan, melaksanakan, memantau, dan menilai serta mendokumentasikan pelaksanaan kegiatan penelitian dan Pengabdian Pada Masyarakat.</p><p>2. Meningkatkan daya saing dosen dalam kegiatan penelitian dan Pengabdian Pada Masyarakat di tingkat asia tenggara.</p><p>3. Meningkatkan kerjasama penelitian dan Pengabdian Pada Masyarakat di tingkat asia tenggara.</p><p>4. Mengarahkan kegiatan penelitian dan pengabdian masyarakat yang berorientasi produk (fisik atau nonfisik) dan/atau perolehan Hak Kekayaan Intelektual (HKI).</p><p>5. Mendiseminasikan hasil penelitian dan Pengabdian Pada Masyarakat. Membangun sistem informasi hasil penelitian dan Pengabdian Pada Masyarakat.</p><p>6. Meningkatkan pemanfaatan hasil penelitian dan Pengabdian Pada Masyarakat untuk pengembangan proses pembelajaran.</p><p>7. Mengembangkan budaya akademik dan kewirausahaan.</p><p>8. Meningkatkan keterlibatan mahasiswa dalam kegiatan penelitian dan Pengabdian Pada Masyarakat. </p>
+2	Struktur Organisasi	<p><span xss=removed>Update data struktur organisasi</span></p><p>1. Ketua</p><p>2.Wakil</p><p>3.Bendahara</p>
+\.
+
+
+--
+-- TOC entry 3043 (class 0 OID 16682)
+-- Dependencies: 203
+-- Data for Name: tb_kategori; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY public.tb_kategori (kategori_id, kategori_nama) FROM stdin;
+1	Pengabdian Masyarakat
+2	Penelitian
+4	Pelatihan
+5	Kampus
+6	Umum
+14	kategori baruuu
+\.
+
+
+--
+-- TOC entry 3049 (class 0 OID 16773)
+-- Dependencies: 209
+-- Data for Name: tb_pengaturan; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY public.tb_pengaturan (pengaturan_id, pengaturan_nama, pengaturan_logo, pengaturan_telp, pengaturan_fb, pengaturan_ig, pengaturan_ytb) FROM stdin;
+1	LPPMITDA	logo-211123-218ee10181.png	274451263	https://web.facebook.com/ITDA.YK	https://www.instagram.com/itda.yogyakarta/	https://www.youtube.com/channel/UCdKcJvmLjJWTsQ97cnG_YCQ
+\.
+
+
+--
+-- TOC entry 3057 (class 0 OID 16860)
+-- Dependencies: 217
+-- Data for Name: tb_pengumuman; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY public.tb_pengumuman (pengumuman_id, pengumuman_date_insert, pengumuman_date_update, pengumuman_judul, pengumuman_sampul, pengumuman_content, pengumuman_status, pengumuman_petugas_id) FROM stdin;
+2	2021-11-29 21:11:42	2021-11-29 21:11:43	Pengumuman 2	imgpsampul-211129-2f0aa31d04.jpg	<p><span xss=removed>Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.</span><br></p>	2	26
+9	2021-12-02 12:06:22	2021-12-07 08:58:34	Wisuda Program Sarjana dan Diploma ITDA Dihadiri oleh Ketum YASAU	imgpsampul-211202-8911fbddbb.jpeg	<p><b>Institut</b> Teknologi Dirgantara Adisutjipto (ITDA) kembali meluluskan alumninya yang acara wisudanya dilaksanakan hari ini, Rabu 24 November 2021. Kegiatan yang dilaksanakan secara luring terbatas atau hybrid ini bertempat di Kesultanan Ballroom Royal Ambarukmo Yogyakarta. Wisuda periode XVI tahun akademik  2021/2022 kali ini diikuti oleh 332 orang wisudawan yang berasal dari Program Studi Teknik Dirgantara (77 orang), Program Studi Teknik Mesin (90 orang), Program Studi Informatika (43 orang), Program Studi Teknik Industri (25 orang), Program Studi Teknik Elektro (46 orang) dan Program Studi Aeronautika (51 orang). Prosesi uda akan dipimpin langsung oleh Rektor ITDA, Marsekal Muda TNI (Purn) Dr. Ir. Drs. T. Ken Darmastono, M.Sc.</p><p><br></p><p>Pada kesempatan wisuda tahun ini, sambutan akan diberikan oleh Kepala Staf TNI Angkatan Udara (KASAU), Marsekal TNI Fadjar Prasetyo, S.E., M.P.P., selaku Pembina YAYASAN TNI AU Adiupaya (YASAU) secara daring. Acara ini pula dihadiri langsung oleh Ketua Umum YASAU Marsma TNI (Purn) Dr. Samto Hadi Isnanto, S.E., M.A. yang dalam prosesi wisuda akan memindahkan tali toga sebagai tanda kelulusan bagi para wisudawan.   Hadir pula jajaran Pengurus YASAU dari jajaran Perguruan Tinggi Swasta (PTS) di bawah naungan YASAU dan undangan lainnya.</p><p>Diantara para wisudawan tersebut terdapat 54 mahasiswa yang meraih predikat cum laude. Mereka berasal dari Program Studi (Prodi) Teknik Dirgantara 8 orang, Prodi Teknik Mesin 13 orang, Prodi Informatika 10 orang, Prodi Teknik Elektro 3 orang, Prodi Teknik Industri 2 orang, dan Prodi Aeronautika 18 orang. Wisudawan terbaik tahun ini diraih oleh Rosalia Setia Nursanti dengan IPK 3,98 dari Prodi Informatika. Adapun wisudawan dengan IPK tertinggi untuk masing-masing Prodi yaitu : Adhi Tyas Wahyu Tri Utomo IPK 3,84 dari Prodi Teknik Mesin; Sayekti IPK 3,81 dari Prodi Teknik Elektro; Filan Hamada Afta IPK 3,75 dari Prodi Aeronautika; Sandy Adam IPK 3,68 dari Prodi Teknik Industri dan Adrian Nasaifal Ramadhan IPK 3,66 dari Prodi Teknik Dirgantara. Saat ini, para lulusan ITDA semakin banyak diminati oleh dunia industri dirgantara. Hal ini terbukti dengan dilakukannya beberapa kali recruitment langsung yang dilakukan di ITDA oleh GMF Aero Asia dan Lion Air, Sinar mas, PT.YAUP, PT. YASUNLI dan lain-lain. Lulusan ITDA juga sudah banyak berkarir di BUMN seperti PTDI, AngkasaPura I dan II. Tidak hanya di dunia industri dirgantara, beberapa lulusan ITDA juga telah berkarir di lembaga pemerintahan seperti di Kementerian Perhubungan, Kementerian Perindustrian, TNI, Polri dan juga BPPT.</p><p>Dengan adanya kepercayaan dari pemerintah, TNI AU, BUMN dan Instansi terkait lainnya serta masyarakat, Rektor ITDA Marsekal Muda TNI (Purn) Dr. Ir. Drs. T. Ken Darmastono, M.Sc. berharap agar seluruh civitas akademika ITDA menjadi lebih bersemangat dan bekerja keras dalam meningkatkan kualitas pendidikan ITDA, terutama dalam inovasi proses pembelajaran mahasiswa maupun peningkatan kualitas dosen.</p>	1	28
+1	2021-11-29 21:03:18	2021-11-30 10:41:52	DUA ALUMNI ITDA RAIH MEDALI DI PON XX PAPUA	imgpsampul-211130-0135ff638a.jpeg	<p>Dua alumni Insititut Teknologi Dirgantara Adisutjipto (ITDA) raih medali Perunggu dalam PON XX Papua. Kerja keras tak akan mengkhianati hasil. Peribahasa ini tampaknya benar-benar diilhami oleh Alumni ITDA Rimbahayu Kusuma Astuti dan Lukman Ar Rosyid. Berlatih keras selama lebih dari satu tahun, perjuangan mereka akhirnya terwujud lewat perolehan medali perunggu.</p><p><br></p><p>Rimba Rahayu Kusuma Astuti, atlet aeromodeling yang mewakili Provinsi Jawa Tengah, yang juga merupakan Alumni ITDA Prodi Teknik Industri Tahun 2015 sukses mendarat di urutan ketiga tercepat nomor Out Hand Launch Glider (OHLG) Putri dengan catatan poin 310. Sedangkan Lukman Ar Rosyid, yang merupakan Alumni Teknik Dirgantara Tahun 2015 menorehkan prestasinya bagi Provinsi Daerah Istimewa Yogyakarta, dengan meraih medali Perunggu di cabang olahraga Hapkido.</p><p><br></p><p>Keberhasilan ini tentunya menjadi suatu kebanggaan baik bagi ITDA maupun pribadi atlet itu sendiri. Kampus ITDA mengucapkan selamat atas raihan prestasi, semoga ke depannya ITDA tetap konsisten memberikan dukungan bagi setiap mahasiswa maupun alumni berprestasi.</p><p><br></p>	1	28
+4	2021-11-30 10:43:18	2021-11-30 10:43:18	VAKSINASI DOSIS KEDUA BAGI DOSEN DAN KARYAWAN ITDA	imgpsampul-211130-d73e7466f4.jpeg	<p>Demi menunjang mobilitas dosen dan tenaga pendidik dalam melaksanakan Tri Dharma Perguruan Tinggi, pemerintah pun mengharuskan para dosen dan tenaga pendidik untuk melakukan vaksinasi. Institut Teknologi Dirgantara Adisutjipto (ITDA) sebagai kampus penerima vaksinasi pun, turut serta melakukan vaksinasi dosis kedua terhadap para dosen dan karyawan di Rumah Sakit Rajawali Citra, Bantul, pada hari Rabu (22/9).</p><p><br></p><p>Sama seperti sebelumnya, kegiatan vaksinasi ini diprakarsai oleh Satuan Tugas (Satgas) Covid-19 ITDA. Vaksinasi kedua kali ini diikuti oleh 108 personel, dan merupakan kelanjutan dari vaksinasi pertama yang sudah diberikan pada bulan Juni lalu.  Ketua Satgas Covid-19 ITDA, Istyawan Priyahapsara, S.T., M.Eng., meghimbau walaupun sudah menerima vaksin dan zona kuning dibuka, kita semua jangan lengah, meskipun sudah ada kelongaran, harus tetap waspada dengan menerapkan protokol kesehatan. </p>	1	28
+5	2021-11-30 10:45:32	2021-11-30 10:45:32	ITDA Terakreditasi Insititusi B oleh BAN-PT	imgpsampul-211130-4d3e79dab0.jpeg	<p>Institut Teknologi Dirgantara Adisutjipto mendapatkan akreditasi institusi B oleh BAN-PT. <br></p>	1	28
+6	2021-11-30 10:47:25	2021-11-30 10:47:25	WAKIL BUPATI BANTUL TERIMA KUNJUNGAN REKTOR ITDA	imgpsampul-211130-eb3f2f6942.jpeg	<p>Pemerintah Kabupaten (Pemkab) Bantul menerima kunjungan Rektor Institut Teknologi Dirgantara Adisutjipto (ITDA) Marsda TNI (Purn) Dr. Ir. Drs. T. Ken Darmastono, M.Sc., didampingi oleh Wakil Rektor I Dedet Hermawan, S.T., M.T., Wakil Rektor III Marsma TNI (Purn) Drs. Mardoto, M.T, dan staf Biro Kerjasama dan Alumni Dewi Pertiwi, S.H.,pada Kamis (19/8).</p><p><br></p><p>Kunjungan ITDA disambut dengan baik oleh Wakil Bupati Bantul Joko B. Purnomo didampingi oleh Ir. Pulung Haryadi, M.Sc., selaku Asisten Sumberdaya dan Kesehatan Rakyat di kantornya. Kunjungan kali ini selain untuk menyambung tali silahturahmi, sekaligus juga sebagai upaya penjajakan kerjasama ITDA dengan Pemkab Bantul. Kerjasama yang bisa dijajaki terkait dengan pelaksanaan Tridharma Perguruan Tinggi seperti misalnya, pelatihan dan kerja praktik. ITDA sebagai perguruan tinggi yang berfokus pada bidang teknologi, diharapkan bisa membantu Pemkab Bantul untuk memaksimalkan potensi wisata yang ada di Kabupaten Bantul, misalnya dalam pembuatan video pariwisata dengan menggunakan drone, potensi desa binaan, dan memanfaatkan sumber daya alam untuk pemanfaatan mesin pembangkit listrik tenaga surya. Sementara di sektor Usaha Mikro Kecil Menengah (UMKM), ITDA dapat berkontribusi pada pelatihan digital marketing.</p><p><br></p><p>Namun dikarenakan saat ini masih dalam masa pandemi Covid-19 kerjasama nantinya akan lebih difokuskan pada percepatan pemulihan ekonomi pasca Covid-19, dengan kolaborasi bersama Badan Perencanaan Pembangunan Daerah (Bappeda), Dinas Kominfo, dan Dinas Pariwisata. Wakil Bupati Bantul menyambut baik gagasan kerjasama ITDA dan selanjutnya akan berkoordinasi dengan  dinas-dinas terkait. Acara kunjungan silahturahmi ini diakhiri dengan foto bersama dan penyerahan cinderamata.</p><p><br></p>	1	28
+8	2021-12-01 13:44:49	2021-12-02 12:04:13	Tes Gambar 1,3MB	imgpsampul-211201-699c4f5e64.jpg	<p><span xss=removed>Sebagai perwujudan tanggung jawab sosial kepada masyarakat untuk menumbuhkan hubungan baik sampai ke lapisan masyarakat yang membutuhkan dukungan, Insititut Teknologi Dirgantara Adisutjipto (ITDA)</span><br></p>	1	29
+\.
+
+
+--
+-- TOC entry 3055 (class 0 OID 16852)
+-- Dependencies: 215
+-- Data for Name: tb_pengumumankategori; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY public.tb_pengumumankategori (pgmkat_id, pgmkat_pengumuman_id, pgmkat_kategori_id) FROM stdin;
+2	2	4
+3	2	5
+10	1	5
+11	4	5
+12	5	6
+13	6	5
+20	8	4
+22	9	5
+\.
+
+
+--
+-- TOC entry 3051 (class 0 OID 16804)
+-- Dependencies: 211
+-- Data for Name: tb_petugas; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY public.tb_petugas (petugas_id, "petugas_NIP", petugas_nama, petugas_email, petugas_nohp, petugas_password, petugas_img_profil, petugas_level) FROM stdin;
+28	54321	Dedi Bintang	dedi@mail.com	884748	admin	imgprofil-211114-b766a782d0.jpg	1
+29	54321	Satria Penulis	satria@mail.com	54353454	penulis	imgprofil-211116-91546d986a.jpg	2
+26	12345	admin 1	admin@email.com	12345	admin	imgprofil-211105-86f2400d62.jpg	1
+\.
+
+
+--
+-- TOC entry 3072 (class 0 OID 0)
+-- Dependencies: 204
+-- Name: tb_artikel_artikel_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('public.tb_artikel_artikel_id_seq', 35, true);
+
+
+--
+-- TOC entry 3073 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: tb_artikelkategori_arkat_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('public.tb_artikelkategori_arkat_id_seq', 109, true);
+
+
+--
+-- TOC entry 3074 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: tb_halaman_halaman_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('public.tb_halaman_halaman_id_seq', 3, true);
+
+
+--
+-- TOC entry 3075 (class 0 OID 0)
+-- Dependencies: 202
+-- Name: tb_kategori_kategori_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('public.tb_kategori_kategori_id_seq', 14, true);
+
+
+--
+-- TOC entry 3076 (class 0 OID 0)
+-- Dependencies: 208
+-- Name: tb_pengaturan_pengaturan_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('public.tb_pengaturan_pengaturan_id_seq', 1, true);
+
+
+--
+-- TOC entry 3077 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: tb_pengumuman_pengumuman_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('public.tb_pengumuman_pengumuman_id_seq', 10, true);
+
+
+--
+-- TOC entry 3078 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: tb_pengumumankategori_pgmkat_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('public.tb_pengumumankategori_pgmkat_id_seq', 24, true);
+
+
+--
+-- TOC entry 3079 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: tb_petugas_petugas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('public.tb_petugas_petugas_id_seq', 30, true);
+
+
+--
+-- TOC entry 2897 (class 2606 OID 16762)
+-- Name: tb_artikel tb_artikel_pkey1; Type: CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_artikel
+    ADD CONSTRAINT tb_artikel_pkey1 PRIMARY KEY (artikel_id);
+
+
+--
+-- TOC entry 2899 (class 2606 OID 16770)
+-- Name: tb_artikelkategori tb_artikelkategori_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_artikelkategori
+    ADD CONSTRAINT tb_artikelkategori_pkey PRIMARY KEY (arkat_id);
+
+
+--
+-- TOC entry 2905 (class 2606 OID 16828)
+-- Name: tb_halaman tb_halaman_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_halaman
+    ADD CONSTRAINT tb_halaman_pkey PRIMARY KEY (halaman_id);
+
+
+--
+-- TOC entry 2895 (class 2606 OID 16690)
+-- Name: tb_kategori tb_kategori_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_kategori
+    ADD CONSTRAINT tb_kategori_pkey PRIMARY KEY (kategori_id);
+
+
+--
+-- TOC entry 2901 (class 2606 OID 16781)
+-- Name: tb_pengaturan tb_pengaturan_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_pengaturan
+    ADD CONSTRAINT tb_pengaturan_pkey PRIMARY KEY (pengaturan_id);
+
+
+--
+-- TOC entry 2909 (class 2606 OID 16868)
+-- Name: tb_pengumuman tb_pengumuman_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_pengumuman
+    ADD CONSTRAINT tb_pengumuman_pkey PRIMARY KEY (pengumuman_id);
+
+
+--
+-- TOC entry 2907 (class 2606 OID 16857)
+-- Name: tb_pengumumankategori tb_pengumumankategori_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_pengumumankategori
+    ADD CONSTRAINT tb_pengumumankategori_pkey PRIMARY KEY (pgmkat_id);
+
+
+--
+-- TOC entry 2903 (class 2606 OID 16812)
+-- Name: tb_petugas tb_petugas_pkey; Type: CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_petugas
+    ADD CONSTRAINT tb_petugas_pkey PRIMARY KEY (petugas_id);
+
+
+--
+-- TOC entry 2911 (class 2606 OID 16782)
+-- Name: tb_artikelkategori fk_arkat_artikel_id; Type: FK CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_artikelkategori
+    ADD CONSTRAINT fk_arkat_artikel_id FOREIGN KEY (arkat_artikel_id) REFERENCES public.tb_artikel(artikel_id) ON UPDATE RESTRICT ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2912 (class 2606 OID 16787)
+-- Name: tb_artikelkategori fk_arkat_kategori_id; Type: FK CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_artikelkategori
+    ADD CONSTRAINT fk_arkat_kategori_id FOREIGN KEY (arkat_kategori_id) REFERENCES public.tb_kategori(kategori_id) ON UPDATE RESTRICT ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2910 (class 2606 OID 16845)
+-- Name: tb_artikel fk_artikel_petugas_id; Type: FK CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_artikel
+    ADD CONSTRAINT fk_artikel_petugas_id FOREIGN KEY (artikel_petugas_id) REFERENCES public.tb_petugas(petugas_id) ON UPDATE RESTRICT ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2915 (class 2606 OID 16879)
+-- Name: tb_pengumuman fk_pengumuman_petugas_id; Type: FK CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_pengumuman
+    ADD CONSTRAINT fk_pengumuman_petugas_id FOREIGN KEY (pengumuman_petugas_id) REFERENCES public.tb_petugas(petugas_id) ON UPDATE RESTRICT ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2913 (class 2606 OID 16874)
+-- Name: tb_pengumumankategori fk_pgmkat_kategori_id; Type: FK CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_pengumumankategori
+    ADD CONSTRAINT fk_pgmkat_kategori_id FOREIGN KEY (pgmkat_kategori_id) REFERENCES public.tb_kategori(kategori_id) ON UPDATE RESTRICT ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2914 (class 2606 OID 16869)
+-- Name: tb_pengumumankategori fk_pgmkat_pengumuman_id; Type: FK CONSTRAINT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY public.tb_pengumumankategori
+    ADD CONSTRAINT fk_pgmkat_pengumuman_id FOREIGN KEY (pgmkat_pengumuman_id) REFERENCES public.tb_pengumuman(pengumuman_id) ON UPDATE RESTRICT ON DELETE CASCADE;
+
+
+-- Completed on 2021-12-07 21:29:15 WIB
+
+--
+-- PostgreSQL database dump complete
+--
+
